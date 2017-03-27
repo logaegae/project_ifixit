@@ -1,0 +1,37 @@
+<!-- list -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.HEADER">Navigation</span>
+  </li>
+  
+  <li ui-sref-active="active" ng-show="loginInfo.isAdmin">
+    <a ui-sref="app.store.list">
+      <i class="icon-list"></i>
+      <span class="font-bold">지점관리</span>
+    </a>
+  </li>
+  <li ui-sref-active="active" ng-show="loginInfo.isAdmin">
+    <a ui-sref="app.board.list({boardId : 'notice'})">
+      <i class="icon-list"></i>
+      <span class="font-bold">공지사항</span>
+    </a>
+  </li>
+  <li ui-sref-active="active" >
+    <a ui-sref="app.contact.list">
+      <!-- <i class="glyphicon glyphicon-usd icon text-success"></i> -->
+      <i class="icon-basket-loaded"></i>
+      <span class="font-bold">문의관리</span>
+    </a>
+  </li>
+  <li ui-sref-active="active" ng-show="loginInfo.isAdmin">
+    <a ui-sref="app.price.list">
+      <!-- <i class="glyphicon glyphicon-usd icon text-success"></i> -->
+      <i class="icon-basket-loaded"></i>
+      <span class="font-bold">비용관리</span>
+    </a>
+  </li>
+  
+
+
+</ul>
+<!-- / list -->

@@ -1,0 +1,232 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+/*@media print{
+    #print_table table tbody th,
+    #print_table table tbody td{
+        border:1px solid #000;
+        font-size: 200px;
+    }
+}*/
+    table th{
+        text-align: center;
+        background-color: #fafafa;
+        vertical-align: middle !important;
+    }
+    label{
+        font-weight: normal;
+        margin-right:20px;
+    }
+    label input{
+        margin-right:5px !important;
+    }
+    /*.print_logo{outline: 1px #000 solid;
+        background: url('../../images/logo.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 200px;
+        height: 50px;
+    }*/
+
+    .hp1::after{
+        content:"-";
+        position:absolute;
+        top:10px;
+        right:15px;
+    }
+    .hp2::after{
+        content:"-";
+        position:absolute;
+        top:1px;
+        right:15px;
+    }
+    .appli_table_textbox{
+        width:100%;
+        overflow-y:scroll;
+        border:1px #AAA solid;
+        margin:10px auto;
+        padding:15px;
+    }
+    .request_span{
+        color:#F00 ;
+    }
+
+    @media screen and (max-width: 479px) {
+        .hp{
+            width:15%;
+            display:inline-block;
+        }
+    }
+
+
+</style>
+    <!-- PAGE TITLE -->
+    <header class="pagetitle pagetitle-sm">
+    	<div class="container">
+    		<div class="divtable irow">
+    			<div class="divcell">
+    				<i class="fa fa-file-o"></i>
+    				<h1>메인보드 수리</h1>
+    				<div class="divider"></div>
+    				<span class="subtitle">메인보드 수리 의뢰</span>
+    			</div>
+    			<div class="divcell text-right">
+    				<ol class="breadcrumb">
+    					<li><a href="#">홈</a></li>
+    					<li class="active">메인보드 수리</li>
+    				</ol>
+    			</div>
+    		</div>
+    	</div>
+    </header>
+    <!-- /.pagetitle -->
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <!-- <div class="text-center">
+                <div class="heading-divider"></div>
+                <h3 class="text-center">수리 의뢰서</h3>
+            </div> -->
+            <!-- <hr class="hr-nobg"> -->
+            <form action="print_mainboard.html" method="post" target="_blank">
+                <fieldset id="print_page">
+                    <legend class="sr-only">복구의뢰신청</legend>
+                    <div id="print_table" class="table-responsive form-group">
+                        <div class="text-left print_logo"><img src="../../images/logo.png" alt="" style="display:none;"></div>
+                        <div class="text-center">
+                            <div class="heading-divider"></div>
+                            <h3 class="text-center" style="margin-top:20px">수리 의뢰서</h3>
+                            <br>
+                        </div>
+
+        				<table class="table table-bordered" >
+                            <colgroup>
+                                <col width="25%">
+                                <col width="75%">
+                            </colgroup>
+        					<tbody>
+        					<tr>
+        						<th>의뢰지점</th>
+        						<td style="padding-left:15px">
+                                    <span>
+                                        <input type="hidden" value="{{body.storeId}}" name="storeId">
+                                        {{storeInfo.name}}
+                                    </span>
+
+                                </td>
+        					</tr>
+        					<tr>
+        						<th>고객명</th>
+        						<td style="padding-left:15px">
+                                    <span>
+                                        <input type="hidden" value="{{body.name}}" name="name">
+                                        {{body.name}}
+                                    </span>
+                                </td>
+        					</tr>
+        					<tr>
+        						<th>연락처</th>
+        						<td style="padding-left:15px">
+                                    <span>
+                                        <input type="hidden" value="{{body.phone}}" name="phone">
+                                        {{body.phone}}
+                                    </span>
+                                </td>
+        					</tr>
+        					<tr>
+        						<th>단말기 모델명</th>
+        						<td style="padding-left:15px">
+                                    <span>
+                                        <input type="hidden" value="{{body.phone}}" name="modelName">
+                                        {{body.modelName}}
+                                    </span>
+                                </td>
+        					</tr>
+        					<tr>
+        						<th>단말기 비밀번호</th>
+        						<td style="padding-left:15px">
+                                    <span>
+                                        <input type="hidden" value="{{body.pwd}}" name="pwd">
+                                        {{body.pwd}}
+                                    </span>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>고장증상 / 요청사항</th>
+        						<td style="padding-left:15px">
+        						    <span>
+                                        <input type="hidden" value="{{body.content}}" name="content">
+                                        {{body.content}}
+                                    </span>
+        						</td>
+        					</tr>
+                            <tr>
+        						<td colspan="2" style="padding:0px 3% 10px;">
+                                    <br>
+                                    <div class="text-left">
+                                        <span class=" request_span">&nbsp;▶ 휴대폰에 저장된 Data는 AS(업그레이드 포함) 중 유실 될 수 있으므로, 수리의회 전 별도 기록(백업) 보관 후 접수 해야 하며, 이에 대한 책임은 단말기사용자에게 있습니다.</span>
+                                        <br>
+                                        <span class=" request_span">&nbsp;▶ 의뢰 된 제품은 테스트 및 수리 과정 중 보호 필름 등이 손실 될 수 있으며, 센터에서는 손실에 대한 책임을 지지 않습니다.</span>
+                                    </div>
+                                    <br>
+                                    <!-- <div class="text-left"> -->
+                                        <span class="pull-left">&nbsp;위의 중요 안내 내용을 이해하였으며, 이에 동의 합니다.</span>
+                                    <!-- </div> -->
+                                    <br>
+                                    <div class="text-center" style="margin:20px 0 15px">
+                                    	{% set now = Date() %}
+                                        <span>{{now | date('Y')}}</span><span>년&nbsp;&nbsp;</span><span>{{now | date('m')}}</span><span>월&nbsp;&nbsp;</span><span>{{now | date('d')}}</span><span>일</span>
+                                    </div>
+                                    <div class="text-right" style="margin:15px 0">
+                                        서명&nbsp;&nbsp;&nbsp;
+                                        <br>
+                                    </div>
+                                    <!-- <br>
+                                    <div style="border-top:2px #333 dashed;">
+                                        <br>
+                                        <p class="text-center">상기 의뢰서를 인쇄하여 수리하실 단말기와 동봉 후 보내주시면 접수가 완료됩니다.</p>
+                                    </div>
+                                    <br> -->
+                                </td>
+        					</tr>
+        					</tbody>
+        				</table>
+        			</div>
+
+                    <div class="text-center print_button" style="margin-top:5px;">
+                        <!-- <input type="submit" class="btn btn-lg btn-primary" value="인쇄하기" onclick="pagePrint(document.getElementById('print_page'))"> -->
+                        <!-- <input type="submit" class="btn btn-lg btn-primary" value="인쇄하기" onclick="pagePrint()"> -->
+                        <!-- <button type="button" class="btn btn-lg btn-primary"  onclick="pagePrint()" formtarget="_blank">인쇄하기</button> -->
+                        <button type="submit" class="btn btn-lg btn-primary">인쇄하기</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // function winopen(){
+        //     win= window.open('http://ifix.i-make.kr/html/src/print_mainboard.html', '_blank');
+        //
+        //
+        // }
+
+
+        // var pagePrint = function() {
+        //     $('.print_logo img').css({
+        //         'display':'block',
+        //         'width':'200px',
+        //         'height':'50px',
+        //         'position':'absolute'
+        //
+        //     });
+        //     $('.print_button').css('display', 'none');
+            // $('#print_table th').css('borderColor','1px solid #000');
+            // $('#print_table td').css('borderColor','1px solid #000');
+
+        //     document.body.innerHTML = print_page.innerHTML;
+		// 	window.print();
+		// };
+    </script>
+{% endblock %}

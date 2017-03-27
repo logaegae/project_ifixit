@@ -1,0 +1,127 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+
+
+
+	<!-- PAGE TITLE -->
+	<header class="pagetitle pagetitle-sm">
+		<div class="container">
+			<div class="divtable irow">
+				<div class="divcell">
+					<i class="fa fa-columns"></i>
+					<h1>수리문의</h1>
+					<div class="divider"></div>
+					<span class="subtitle"></span>
+				</div>
+				<div class="divcell text-right">
+					<ol class="breadcrumb">
+						<li><a href="#">홈</a></li>
+						<li class="active">수리문의</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /.pagetitle -->
+
+
+	<!-- CONTENT -->
+	<div class="content">
+
+		{% for item in list %}
+			<!-- POST: Standart -->
+			<div class="container post format-standart">
+				<div class="entry">
+					<header class="entry-header">
+						<h2><a>{{item.title}}</a></h2>
+						<h5>{{item.Store.name}}</h5>
+						<div class="meta">
+							<small><i class="fa fa-calendar"></i>{{item.registDate | date('Y-m-d')}}</small>
+						</div>
+					</header>
+					<div class="entry-content">
+						
+						<p style="word-break:break-all;white-space:pre-wrap;">{{item.PhoneModel.modelName.replace('_', ' ')}}</p>
+						<p style="word-break:break-all;white-space:pre-wrap;">{{item.content | safe}}</p>
+					</div>
+
+
+				{% if item.ContactComments.length > 0 %}
+					<!-- COMMENTS -->
+					<div class="comments" id="comments" style="margin-top:15px;margin-left:15px;">
+					{% for comment in item.ContactComments %}
+						<div class="comment clearfix">
+							<a href="" class="comment-ava"><img src="/images/50x50.png" alt="" class="img-circle img-sm" style="width:50px;height:50px;"></a>
+							<div class="comment-text">
+								<div class="comment-line">
+									<p>
+										{{comment.registDate | date('Y-m-d H:i:s', -480)}}
+									</p>
+								</div>
+								<p style="word-break:break-all;white-space:pre-wrap;">{{comment.content | safe}}</p>
+							</div>
+						</div>
+					{% endfor %}
+					</div>
+					<!-- /.comments -->
+
+				{% endif %}
+				</div>
+			</div>
+			<!-- /.post -->
+
+			<hr/>
+
+		{% endfor %}
+
+
+		<!-- CONTAINER -->
+		<div class="container text-center">
+			<!-- PAGINATION -->
+			<ul class="pagination">
+
+	                    {% set totalPage = Math.floor(totalCount / pageSize) %}
+	                    {% if totalCount % pageSize > 0 %}
+	                    	{% set totalPage = totalPage + 1%}
+	                    {% endif %}
+
+	                    {% set num =  currentPage-1  %}
+	                    {% set startPage = Math.floor(num / 10) * 10 + 1%}
+						{% set endPage = startPage + 10 - 1 %}
+	                    {% if endPage  > totalPage %}
+	                    	{% set endPage = totalPage %}
+	                    {% endif %}
+                    	{% if currentPage > 1 %}
+                    		<li><a href="?page={{currentPage-1}}" class="prev"><i class="fa fa-angle-left"></i></a></li>
+                        {% else %}
+                     	 	<li><a class="prev"><i class="fa fa-angle-left"></i></a></li>
+                        {% endif %}
+
+                        {% for i in Array(endPage-startPage+1) %}
+                        	{% set page =  startPage + loop.index-1 %}
+                       		{% if currentPage == page %}
+                        		<li class="active"><a>{{page}}</a></li>
+                        	{% else %}
+                        		<li><a href="?page={{page}}">{{page}}</a></li>
+                        	{% endif %}
+                        {% endfor %}
+
+                        {% if currentPage < totalPage %}
+                        	<li><a href="?page={{currentPage+1}}" class="next"><i class="fa fa-angle-right"></i></a></li>
+                        {% else %}
+                        	<li><a class="next"><i class="fa fa-angle-right"></i></a></li>
+                        {% endif %}
+			</ul>
+			<!-- /.pagination -->
+
+			<hr class="hr-nobg" />
+			<a href="contact_write.html" class="btn btn-primary">문의하기</a>
+		</div>
+		<!-- /.container -->
+
+
+	</div>
+	<!-- /.content -->
+
+
+{% endblock %}

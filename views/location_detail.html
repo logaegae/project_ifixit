@@ -1,0 +1,150 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+	.img_box{
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		background-size: cover;
+		background-position: center center;
+
+	}
+	@media screen and (max-width: 767px){
+		.modal_message{
+			text-align: left;
+			padding:3%;
+		}
+	}
+</style>
+	<!-- PAGE TITLE -->
+	<header class="pagetitle pagetitle-sm">
+		<div class="container">
+			<div class="divtable irow">
+				<div class="divcell">
+					<i class="fa fa-file-o"></i>
+					<h1>지점 안내</h1>
+					<div class="divider"></div>
+					<span class="subtitle">영업시간 안내 및 오시는 길</span>
+				</div>
+				<div class="divcell text-right">
+					<ol class="breadcrumb">
+						<li><a href="#">홈</a></li>
+						<li class="active">지점안내</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /.pagetitle -->
+
+	<!-- 서비스 소개 -->
+	<div class="content">
+
+        <div class="container">
+            <div class="row irow-xs cards">
+				<div class="col-sm-6">
+					<hr class="hr-nobg">
+					<h2>{{store.name}}</h2>
+					<div class="heading-divider"></div>
+                    <p class="modal_message">
+                    	{%if store.normalTime || store.satTime || store.holiTime%}
+                        <br><strong>영업시간</strong><br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{%if store.normalTime%}평일 : {{store.normalTime}}<br/>{%endif%}
+                        &nbsp;&nbsp;&nbsp;&nbsp;{%if store.satTime%}토요일 : {{store.satTime}}<br/>{%endif%}
+                        &nbsp;&nbsp;&nbsp;&nbsp;{%if store.holiTime%}공휴일 : {{store.holiTime}}<br/>{%endif%}
+                        {%endif%}
+                        <br><strong>전화번호 : </strong>&nbsp;&nbsp;&nbsp;&nbsp;{{store.tel}}<br/>
+                        <br><strong>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소 : </strong>&nbsp;&nbsp;&nbsp;&nbsp;{{store.address}}
+                    </p>
+				</div>
+				{% if store.AttachFiles.length > 0 %}
+				<div class="col-sm-6">
+					<div class="card card-image">
+						<figure class="figure slider oneslider">
+							<ul data-fx="uncover" data-auto="true" data-timeout="3000" class="img_box_ul">
+                                {% set attachFile = store.AttachFiles %}
+                                {% if attachFile.length == 0 %}
+                                    <li>
+                                        <div class="img_box" style="background-image: url(/images/300x300.png)">
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    {% for item in attachFile %}
+                                        <li>
+                                            <div class="img_box" style="background-image: url({{item.filePath}});filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{item.filePath}}', sizingMethod='scale');">
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+
+							</ul>
+							<a class="slider-arrow slider-arrow-prev" href=""></a>
+							<a class="slider-arrow slider-arrow-next" href=""></a>
+							<nav class="slider-pagination"></nav>
+						</figure>
+					</div>
+				</div>
+				{%endif%}
+			</div>
+			<hr class="hr-nobg">
+            <hr class="hr-nobg">
+			<!--
+				* Daum 지도 - 약도서비스
+				* 한 페이지 내에 약도를 2개 이상 넣을 경우에는
+				* 약도의 수 만큼 소스를 새로 생성, 삽입해야 합니다.
+			-->
+			<!-- 1. 약도 노드 -->
+			<div id="aa" class="root_daum_roughmap root_daum_roughmap_landing map"></div>
+
+			<!-- 2. 설치 스크립트 -->
+			<script charset="UTF-8" class="daum_roughmap_loader_script" src="http://dmaps.daum.net/map_js_init/roughmapLoader.js"></script>
+        </div>
+
+
+		<!-- CONTAINER -->
+		<div class="container text-center">
+            <div class="text-center">
+				<!--<a href="contact_write.html?storeId={{store.storeId}}" class="btn btn-inverse" style="margin-bottom:0;">문의하기</a>-->
+                <a href="location.html" class="btn btn-primary btn-wide" data-dismiss="modal">목록보기</a>
+            </div>
+		</div>
+	</div>
+
+<!-- 3. 실행 스크립트 -->
+
+<script type="text/javascript">
+	var mapData = '{{store.mapKey}}';
+	var mapKey = mapData.substring(13)+'';
+	var mapTimestamp = mapData.substring(0,13)+'';
+	document.getElementById("aa").id = "daumRoughmapContainer"+mapTimestamp;
+
+	console.log(mapKey+'/'+mapTimestamp);
+    window.onload = function(){
+		//지도 생성
+		var mapWidth = $('.container').width();
+		new daum.roughmap.Lander({
+			"timestamp" : mapTimestamp,
+			"key" : mapKey,
+			"mapWidth" : mapWidth,
+			"mapHeight" : "500"
+		}).render();
+		//이미지 높이 보정
+		function imgBoxHeight(){
+			var temp = $('.img_box').parents('.col-sm-6').width();
+            $('.img_box').css({height:temp / 600 * 500});
+        };
+        imgBoxHeight();
+        $(window).resize(function(){
+            imgBoxHeight();
+			$('.map > div').remove();
+			mapWidth = $('.container').width();
+			new daum.roughmap.Lander({
+				"timestamp" : mapTimestamp,
+				"key" : mapKey,
+				"mapWidth" : mapWidth,
+				"mapHeight" : "500"
+			}).render();
+        });
+
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,295 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+
+    <!-- PAGE TITLE -->
+    <header class="pagetitle pagetitle-sm">
+    	<div class="container">
+    		<div class="divtable irow">
+    			<div class="divcell">
+    				<i class="fa fa-file-o"></i>
+    				<h1>데이터 복구</h1>
+    				<div class="divider"></div>
+    				<span class="subtitle">데이터 복구 서비스 소개</span>
+    			</div>
+    			<div class="divcell text-right">
+    				<ol class="breadcrumb">
+    					<li><a href="#">홈</a></li>
+    					<li class="active">데이터복구</li>
+    				</ol>
+    			</div>
+    		</div>
+    	</div>
+    </header>
+    <!-- /.pagetitle -->
+
+    <!-- CONTENT -->
+    <div class="content">
+        <!-- 절차 -->
+        <div class="container">
+            <section class="row page-header text-center">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                    <div class="icon icon-color icon-size-7">
+                        <i class="fa fa-heartbeat"></i>
+                    </div>
+                    <h1>긴급복구 서비스</h1>
+                    <p>긴급을 요하는 고객님의 중요한 데이터 복구 작업에 대해 시간 보장제 서비스를 실시 합니다.</p>
+                </div>
+            </section>
+        </div>
+        <hr class="hr-nobg">
+        <div class="content iwrap iwrap-light">
+            <div class="container">
+                <section class="row page-header text-center">
+    				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="heading-divider"></div>
+            			<h2 class="text-center">긴급복구 서비스 시간</h2>
+    				</div>
+                </section>
+                <hr class="hr-nobg">
+                <table class="table">
+                    <colgroup>
+                        <col style="width:33%">
+                        <col style="width:33%">
+                        <col style="width:33%">
+                    </colgroup>
+        			<thead>
+        			<tr>
+        				<th>기기</th>
+        				<th>정상</th>
+        				<th>고장</th>
+        			</tr>
+        			</thead>
+        			<tbody>
+        			<tr>
+        				<td>일반 휴대폰</td>
+        				<td>5시간</td>
+        				<td>8시간</td>
+        			</tr>
+                    <tr>
+        				<td>스마트폰, 태블릿pc</td>
+        				<td>5시간</td>
+        				<td>8시간</td>
+        			</tr>
+        			</tbody>
+        		</table>
+            </div>
+        </div>
+
+        <hr class="hr-nobg">
+        <div class="highlight highlight-light overlay background" style="background-image: url(/images/data_a.jpg);background-attachment:fixed;">
+			<div class="container">
+				<section class="row page-header text-center">
+					<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="heading-divider"></div>
+            			<h2>긴급복구 서비스 비용</h2><br>
+						<p class="text-left" style="color:#333;">
+                            긴급복구 서비스 비용 : 휴대폰 복구 비용의 1.5배<br>
+                            복구시간 : 업무시간인 월~금요일 09:30 ~ 19:00를 기준<br><br>
+                            ※ 위 시간까지 작업을 못할 경우 긴급복구 할증 비용을 받지 않습니다.<br>
+                            단, 복구가 완료된 후 백업은 별도의 시간이 소요됩니다.
+                        </p>
+                        <br>
+                        <a href="" class="btn btn-inverse btn-xl" style="margin-bottom:0;" data-toggle="modal" data-target="#large-modal1">견적 안내</a>
+						<a href="application.html?urgent=true" class="btn btn-primary btn-xl">서비스 신청하기</a>
+					</div>
+				</section>
+			</div>
+		</div>
+
+    </div>
+    <!-- Modal Large -->
+    <div class="modal fade" id="large-modal1">
+    	<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+    				<h6 class="modal-title">Large modal window</h6>
+    			</div>
+    			<div class="modal-body text-center">
+    				<div class="modal-body-inside">
+    					<div class="icon icon-color icon-size-4" >
+    						<i class="fa fa-heart-o"></i>
+    					</div>
+    					<h4>데이터 복구 가격표</h4>
+    					<div class="heading-divider"></div>
+                        <div class="table-responsive">
+                            <h5 class="text-left">일반 복구 서비스</h5>
+            				<table class="table table-bordered text-left">
+            					<thead>
+            					<tr>
+            						<th rowspan="3" colspan="2" style="vertical-align:middle; text-align:center">복구 데이터 종류</th>
+            						<th rowspan="3" style="vertical-align:middle; text-align:center">기본 작업비용<br>(별도청구/환불불가)</th>
+            						<th colspan="4" style="vertical-align:middle; text-align:center">복구가격</th>
+            					</tr>
+                                <tr>
+            						<th colspan="2" style="vertical-align:middle; text-align:center">스마트폰</th>
+                                    <th colspan="2" style="vertical-align:middle; text-align:center">피쳐폰</th>
+            					</tr>
+                                <tr>
+            						<th style="vertical-align:middle; text-align:center">정상</th>
+                                    <th style="vertical-align:middle; text-align:center">고장</th>
+                                    <th style="vertical-align:middle; text-align:center">정상</th>
+                                    <th style="vertical-align:middle; text-align:center">고장</th>
+            					</tr>
+            					</thead>
+            					<tbody>
+            					<tr>
+            						<td rowspan="4" style="vertical-align:middle; text-align:center">전화번호</td>
+            						<td>200건 이하</td>
+            						<td rowspan="11" style="vertical-align:middle; text-align:center">30,000원</td>
+            						<td>60,000원</td>
+            						<td>100,000원</td>
+            						<td>130,000원</td>
+            						<td>180,000원</td>
+            					</tr>
+                                <tr>
+            						<td>500건 이하</td>
+            						<td>80,000원</td>
+            						<td>120,000원</td>
+            						<td>150,000원</td>
+            						<td>200,000원</td>
+            					</tr>
+                                <tr>
+            						<td>1000건 이하</td>
+            						<td>120,000원</td>
+            						<td>150,000원</td>
+            						<td>220,000원</td>
+            						<td>270,000원</td>
+            					</tr>
+                                <tr>
+            						<td>1000건 초과</td>
+            						<td>150,000원</td>
+            						<td>170,000원</td>
+            						<td>270,000원</td>
+            						<td>350,000원</td>
+            					</tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">사진</td>
+                                    <td>120,000원</td>
+                                    <td>120,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">동영상</td>
+                                    <td>120,000원</td>
+                                    <td>120,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">일정관리(스케줄)</td>
+                                    <td>150,000원</td>
+                                    <td>200,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">메모</td>
+                                    <td>150,000원</td>
+                                    <td>200,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">Email, 기타문서</td>
+                                    <td>150,000원</td>
+                                    <td>150,000원</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">고장폰 패키지 A</td>
+                                    <td colspan="4" style="vertical-align:middle;">전화번호 + 사진 200,000원(수량무관)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">고장폰 패키지 B</td>
+                                    <td colspan="4" style="vertical-align:middle;">전화번호 + 사진 + 동영상 250,000원(수량무관)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">할인정책</td>
+                                    <td></td>
+                                    <td colspan="4" style="vertical-align:middle; text-align:center">
+                                        2건 10%할인<br>
+                                        3건 이상 20%할인
+                                    </td>
+                                </tr>
+            					</tbody>
+            				</table>
+                            <ul class="text-left">
+                                <li style="padding-left:5px;"><i class="fa fa-caret-right"></i> 복구 완료시 택배비용은 당사가 부담합니다.</li>
+                                <li><i class="fa fa-caret-right"></i> 기본 작업비 3만원을 결제하셔야 작업이 진행되며, <strong>기본작업비는 환불되지 않습니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 긴급복구서비스는 작업비 50,000원</strong>, 일반 복구비용의 <strong>1.5배, 타업체 복구실패건</strong>은 일반 복구비용의 2배가 적용됩니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong style="text-decoration:underline;"> 복구 소요시간은 업무시간인 월~금 9:30~19:00를 기준으로 합니다.</strong></li>
+                            </ul>
+                            <br>
+
+                            <h5 class="text-left">분석 복구 서비스</h5>
+            				<table class="table table-bordered text-left">
+            					<thead>
+                					<tr>
+                						<th rowspan="2" style="vertical-align:middle; text-align:center">복구 데이터 항목</th>
+                						<th rowspan="2" style="vertical-align:middle; text-align:center">정밀 작업비용<br>(별도청구/환불불가)</th>
+                						<th colspan="4" style="vertical-align:middle; text-align:center">복구성공시 청구요금(VAT별도)</th>
+                					</tr>
+                                    <tr>
+                						<th style="vertical-align:middle; text-align:center">정상폰</th>
+                                        <th style="vertical-align:middle; text-align:center">고장폰</th>
+                                        <th style="vertical-align:middle; text-align:center">확인서<br>(경찰서제출용)</th>
+                                        <th style="vertical-align:middle; text-align:center">증거감정서<br>(법원제출용)</th>
+                					</tr>
+            					</thead>
+            					<tbody>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">통화내역, 문자메세지</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">1건 50,000원<br><br>2건이상 100,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">300,000원</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">500,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">모바일 메신저<br>(카카오톡, 마이피플, 틱톡 등)</td>
+                                        <td style="vertical-align:middle; text-align:center">350,000원<br>(각각청구)</td>
+                                        <td style="vertical-align:middle; text-align:center">350,000원<br>(각각청구)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">첨부사진<br>(문자, 카카오톡 등)</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원<br>(각각청구)</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원<br>(각각청구)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">음성파일</td>
+                                        <td style="vertical-align:middle; text-align:center">300,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">300,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">메일 및 인터넷 방문기록</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">할인정책</td>
+                                        <td colspan="5" style="vertical-align:middle; text-align:center">2건 10% 할인<br>3건 이상 20% 할인</td>
+                                    </tr>
+                                <tbody>
+                            </table>
+                            <ul class="text-left">
+                                <li><i class="fa fa-caret-right"></i><strong> 휴대폰 증거 감정복구</strong>는 <strong>대법원 공식 감정인</strong>이 직접 증거감정 팀을 구성하여 절차에 의해 분석감정을 진행합니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 증거감정복구</strong>는 자동화된 일반복구 솔루션보다 더 세밀하게 메모리 전 영역을 분석합니다.</li>
+                                <li><i class="fa fa-caret-right"></i> 기본 작업비용 및 데이터 수령비용은 선결제 하셔야 하며, 감정결과에 상관없이 환불되지 않습니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 긴급복구서비스는 작업비 50,000원</strong>, 일반 복구비용의 <strong>1.5배, 타업체 복구실패건</strong>은 일반 복구비용의 2배가 적용됩니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong>증거감정</strong> 복구결과는 데이터 수령비용 결제 후 CD 또는 메일로 수령 가능합니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 보고서(확인서 및 감정서)는 데이터 수령 및 검토 후 결정하시면 됩니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 정밀분석 요청 시 별도의 작업비용(10만원)이 청구됩니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 암호화 스마트폰은 추가비용이 발생될 수 있습니다.</strong></li>
+                            </ul>
+            			</div>
+    					<a href="" class="btn btn-primary btn-wide" data-dismiss="modal">닫기</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <!-- /.modal -->
+{% endblock %}

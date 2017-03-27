@@ -1,0 +1,627 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+
+<style>
+	.local_p strong{
+		margin-left: 10px;
+	}
+	.local_p span{
+		margin-left: 20px;
+		display: block;
+	}
+	#open_pop {
+		display:none;
+		position: absolute;
+		z-index: 50 !important;
+		left: 28%;
+	}
+
+	#open_pop .popup_pc{
+		left: 50px;
+	}
+	#open_pop .popup_mobile{
+		display: none;
+		left: 0px;
+	}
+	#popup_pc_today:focus,
+	#popup_pc_close:focus,
+	#popup_mobile_today:focus,
+	#popup_mobile_close:focus{
+		outline: none;
+	}
+</style>
+<!--[if IE]>
+	<style>
+		.tp-dottedoverlay{height:0 !important;}
+	</style>
+<![endif]-->
+
+	<div id="open_pop">
+	<!-- <div class="popup_pc">
+		<a href="">
+			<img src="../../images/open_pc.jpg" alt="" />
+		</a>
+	</div> -->
+	<div>
+		<!-- <a href=""> -->
+			<img class="popup_pc" src="../../images/open_pc.jpg" alt="popup_pc_img" usemap="#popup_pc_img" />
+			<map id="popup_pc_img" name="popup_pc_img">
+				<area id="popup_pc_today" shape="rect" coords="570, 451, 749, 499" href="#" alt=""/>
+				<area id="popup_pc_close" shape="circle" coords="718, 32, 13" href="#" alt="" />
+			</map>
+			<img class="popup_mobile" src="../../images/open_mobile.jpg" alt="" usemap="#popup_mobile_img" />
+			<map id="popup_mobile_img" name="popup_mobile_img">
+				<area id="popup_mobile_today" shape="rect" coords="189, 429, 319, 479" href="#" alt="" />
+				<area id="popup_mobile_close" shape="circle" coords="294, 36, 13" href="#" alt="" />
+			</map>
+		<!-- </a> -->
+	</div>
+		<!-- <div class="popup_pc">
+			<img  src="../../images/open_pc_1.jpg" alt="" />
+			<a href="">
+				<img src="../../images/open_pc_2.jpg" alt="" />
+			</a>
+		</div> -->
+		<!-- <div class="popup_mobile">
+			<img  src="../../images/open_mobile_1.jpg" alt="">
+			<a href="">
+				<img src="../../images/open_mobile_2.jpg" alt="" />
+			</a>
+		</div> -->
+
+</div>
+
+
+
+	<div class="bannercontainer banner-light banner_video">
+		<div class="banner " data-auto="true" data-fullscreen="on" data-hidetimerbar="off">
+			<ul class="banner_video">
+				<li data-transition="fade" data-slotamount="7"
+					data-saveperformance="on" class="background  overlay-light"
+					style="background-color:white;">
+					<div
+						class="tp-caption sft large_bold_white home_text" data-x="center"
+						data-y="center" data-voffset="-85" data-speed="700"
+						data-start="700" data-easing="easeOutBack" style="background-color: rgba(0, 0, 0, 0.4);">대한민국 아이폰 수리 No.1
+					</div>
+					<p class="tp-caption fade text-center home_text" data-x="center"
+						data-y="center" data-speed="500" data-start="900"
+						data-easing="easeOutBack" style="color:white;background-color: rgba(0, 0, 0, 0.4)">
+						20년간의 아이폰/휴대폰을 수리해 온 경험과 노하우로 <br/>고객님이 원하시는 최상의 수리품질과 만족도를 보장 드리며, 가장 정직하고, 가장 정확한 수리비용을 약속 드리겠습니다.
+					</p>
+					<!-- <div>
+						<span class="banner_text_a">대한민국 아이폰 수리 No.1</span>
+						<span class="banner_text_b">20년간의 아이폰/휴대폰을 수리해 온 경험과 노하우로 <br/>고객님이 원하시는 최상의 수리품질과 만족도를 보장 드리며, 가장 정직하고, 가장 정확한 수리비용을 약속 드리겠습니다.</span>
+					</div> -->
+
+					<a href="location.html" class="tp-caption sfb btn btn-primary btn-lg btn-wide home_text"
+					data-x="center" data-y="center" data-voffset="80"
+					data-hoffset="-10" data-speed="300" data-start="1000">지점 검색하기
+					</a>
+					<div class="tp-caption tp-fade fadeout fullscreenvideo video_a" data-x="0"
+						data-y="0" data-autoplay="true" data-nextslideatend="true"
+						data-forcecover="1" data-dottedoverlay="twoxtwo"
+						data-aspectratio="16:9" data-forcerewind="on" style="z-index: -1">
+						{%if !deviceInfo.Mobile%}
+						<video class="video-js vjs-default-skin" preload="none" muted
+							width="100%" height="100%"
+							data-setup="{}">
+							<source src='/videos/shutterstock_v9750698.mp4'
+								type='video/mp4' />
+						</video>
+						{%endif%}
+					</div>
+				</li>
+				<li data-transition="fade" data-slotamount="7"
+					data-saveperformance="on" class="background  overlay-light"
+					style="background-color:white;">
+					<div
+						class="tp-caption sft large_bold_white home_text" data-x="center"
+						data-y="center" data-voffset="-85" data-speed="700"
+						data-start="700" data-easing="easeOutBack" style="background-color: rgba(0, 0, 0, 0.4);">대한민국 아이폰 수리 No.1
+					</div>
+					<p class="tp-caption fade text-center home_text" data-x="center"
+						data-y="center" data-speed="500" data-start="900"
+						data-easing="easeOutBack" style="color:white;background-color: rgba(0, 0, 0, 0.4)">
+						20년간의 아이폰/휴대폰을 수리해 온 경험과 노하우로 <br/>고객님이 원하시는 최상의 수리품질과 만족도를 보장 드리며, 가장 정직하고, 가장 정확한 수리비용을 약속 드리겠습니다.
+					</p>
+					<!-- <div>
+						<span class="banner_text_a">대한민국 아이폰 수리 No.1</span>
+						<span class="banner_text_b">20년간의 아이폰/휴대폰을 수리해 온 경험과 노하우로 <br/>고객님이 원하시는 최상의 수리품질과 만족도를 보장 드리며, 가장 정직하고, 가장 정확한 수리비용을 약속 드리겠습니다.</span>
+					</div> -->
+
+					<a href="location.html" class="tp-caption sfb btn btn-primary btn-lg btn-wide home_text"
+					data-x="center" data-y="center" data-voffset="80"
+					data-hoffset="-10" data-speed="300" data-start="1000">지점 검색하기
+					</a>
+					<div class="tp-caption tp-fade fadeout fullscreenvideo video_b" data-x="0"
+						data-y="0" data-autoplay="true" data-nextslideatend="true"
+						data-forcecover="1" data-dottedoverlay="twoxtwo"
+						data-aspectratio="16:9" data-forcerewind="on" style="z-index: -1">
+						{%if !deviceInfo.Mobile%}
+						<video class="video-js vjs-default-skin" preload="none" muted
+							width="100%" height="100%"
+							data-setup="{}">
+							<source src='/videos/shutterstock_v11944379.mp4'
+								type='video/mp4' />
+						</video>
+						{%endif%}
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<!-- <div class=" banner-light banner_img">
+		<div class="banner_img">
+			<img src="../../images/sample/img (68).jpg" alt="">
+		</div>
+	</div> -->
+
+
+
+
+
+	<div class="content no-all-paddings">
+
+		<hr class="hr-nobg hr-lg" />
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-sm-12">
+					<h2>주요 서비스</h2>
+				</div>
+			</div>
+			<div class="row irow-xs text-center cols-border">
+				<div class="col-sm-3">
+					<a href="iphone.html">
+						<div class="icon icon-color icon-size-4" data-hover="rubberBand">
+							<i class="fa fa-mobile-phone"></i>
+						</div>
+						<h4>아이폰 / 아이패드</h4>
+						<div class="heading-divider"></div>
+						<p></p>
+					</a>
+				</div>
+				<div class="col-sm-3">
+					<a href="sony.html">
+						<div class="icon icon-color icon-size-4" data-hover="flash">
+							<i class="fa fa-building"></i>
+						</div>
+						<h4>sony, blackberry</h4>
+						<div class="heading-divider"></div>
+						<p></p>
+					</a>
+				</div>
+				<div class="col-sm-3">
+					<a href="mainboard.html">
+						<div class="icon icon-color icon-size-4" data-hover="pulse">
+							<i class="fa fa-ticket"></i>
+						</div>
+						<h4>아이폰 메인보드</h4>
+						<div class="heading-divider"></div>
+						<p></p>
+					</a>
+				</div>
+				<div class="col-sm-3">
+					<a href="data.html">
+						<div class="icon icon-color icon-size-4" data-hover="pulse">
+							<i class="fa fa-database "></i>
+						</div>
+						<h4>데이터 복구</h4>
+						<div class="heading-divider"></div>
+						<p></p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="hr-nobg" /><hr class="hr-nobg" /><hr class="hr-nobg" />
+	<div class="highlight highlight-light no-all-paddings">
+		<div class="container">
+			<div class="row irow-xs">
+				<div class="col-lg-7 col-md-7 text-wrap">
+					<h2>20년간의 경험과 노하우 그리고 고객에 대한 감사</h2>
+					<p>
+						I FIX it KOREA 는 아이폰이 출시 되기 이전부터 모바일 기기를 수리해 왔습니다.
+						기술의 발전에 따라 다양한 기능들이 휴대폰에 적용, 변화해 왔습니다. 하지만, 고객을 위한 I FIX it KOREA 의 감사하는 마음은 변하지 않습니다.
+					</p>
+					<p>
+						처음 오시는 고객님 중에 일부는 종종 다른 수리업체를 찾아가시지만 다시금 저희 매장을 찾아주시는 고객 분들이 많습니다.
+					</p>
+					<p>
+						테크니션의 신뢰 할 수 있는 기술력이 있기에 고객을 위하는 성실함과 정직함이 있기에 무엇보다, 그런 우리를 믿고 찾아 주시는 고객 분들이 있기에 앞으로도 늘 고객을 생각하고, 최선을 다하는 I FIX it KOREA 가 되겠습니다.
+					</p>
+					<div class="heading-divider heading-divider-lg"></div>
+					<h4>I FIX it KOREA 테크니션 일동</h4>
+				</div>
+				<div
+					class="col-lg-5 col-md-5 img-wrap img-wrap-right img-wrap-auto sm-center-img overlay home_mobile">
+					<img src="../../images/main.jpg" alt="" style="top:85px">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="hr-nobg" /><hr class="hr-nobg" /><hr class="hr-nobg" />
+	<div class="container-fluid slider">
+		<div class="container">
+			<div class="row text-center cards">
+				<ul data-max-items="4" style="height:300px;">
+					<li class="col-sm-3"><a href="#" class="card card-dark"><div
+								class="icon icon-color icon-size-4">
+								<i class="fa fa-medkit"></i>
+							</div>
+							<h4>20년의 노하우와 기술</h4>
+							<div class="heading-divider"></div>
+							<p>대한민국에서 현존하는 가장 오래된 아이폰 수리 사설업체 입니다.</p></a></li>
+					<li class="col-sm-3"><a href="#" class="card card-dark"><div
+								class="icon icon-color icon-size-4">
+								<i class="fa fa-money"></i>
+							</div>
+							<h4>메인보드 수리</h4>
+							<div class="heading-divider"></div>
+							<p>메인보드를 20년 이상 다뤄온 전문적인 테크니션들이 수리하고 있습니다. </p></a></li>
+					<li class="col-sm-3"><a href="#" class="card card-dark"><div
+								class="icon icon-color icon-size-4">
+								<i class="fa fa-mobile"></i>
+							</div>
+							<h4>중고폰 매입</h4>
+							<div class="heading-divider"></div>
+							<p>전문가의 휴대폰 감정 및 현재 시세에 따라 있는 합리적인 매입가를 제시해 드립니다.</p></a></li>
+					<li class="col-sm-3"><a href="#" class="card card-dark"><div
+								class="icon icon-color icon-size-4">
+								<i class="fa fa-fighter-jet"></i>
+							</div>
+							<h4>데이터 복구</h4>
+							<div class="heading-divider"></div>
+							<p>(주)데이터닥터와의 업무 제휴를 통해 가장 빠르고 정확하게 데이터를 복원합니다.</p></a></li>
+				</ul>
+			</div>
+			<a href="#"
+				class="slider-arrow arrow-margin arrow-lg arrow-nobg-light slider-arrow-prev"></a>
+			<a href="#"
+				class="slider-arrow arrow-margin arrow-lg arrow-nobg-light slider-arrow-next"></a>
+		</div>
+		<nav class="slider-pagination"></nav>
+	</div>
+	<hr class="hr-nobg" /><hr class="hr-nobg" /><hr class="hr-nobg" />
+
+			<!--
+			<div class="highlight highlight-light">
+
+				<div class="page-header text-center">
+					<h1>아이폰 부품 가격</h1>
+					<hr class="hr-nobg" />
+				</div>
+				<div class="container">
+
+					<div class="row irow-sm text-center pricing pricing-nobg" style="margin-top:0px;">
+						<div class="col-md-3 col-xs-6">
+							<div class="pricing-box " >
+								<h2>아이폰5S</h2>
+								<hr class="hr-dots" />
+								<ul>
+									<li><div class="text-left"><h3>액정 : 60,000<br/><br/>베터리 : 60,000</h3></div></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="pricing-box pricing-highlight" >
+								<h2>아이폰5S</h2>
+								<hr class="hr-dots" />
+								<ul>
+									<li><div class="text-left"><h3>액정 : 60,000<br/><br/>베터리 : 60,000</h3></div></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="pricing-box " >
+								<h2>아이폰5S</h2>
+								<hr class="hr-dots" />
+								<ul>
+									<li><div class="text-left"><h3>액정 : 60,000<br/><br/>베터리 : 60,000</h3></div></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="pricing-box pricing-highlight" >
+								<h2>아이폰5S</h2>
+								<hr class="hr-dots" />
+								<ul>
+									<li><div class="text-left"><h3>액정 : 60,000<br/><br/>베터리 : 60,000</h3></div></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<hr class="hr-nobg" /><hr class="hr-nobg" /><hr class="hr-nobg" />
+
+			 -->
+
+	<div class="container location">
+		<div class="page-header text-center">
+			<h1>전국 지점 안내</h1>
+			<hr class="hr-nobg" />
+		</div>
+		{% for group in groups %}
+			<div class="row irow-sm text-center cards cards-inside box1">
+			{% for item in group.Stores %}
+				{% if item.AttachFiles.length == 0 %}
+					{% set imagePath = '/images/300x300.png' %}
+				{% else %}
+					{% set attachFile = item.AttachFiles[0] %}
+					{% set imagePath = attachFile.filePath %}
+				{% endif %}
+				<div class="col-md-3 col-sm-6" id="store_card_{{item.storeId}}">
+					<a href="location_detail.html?storeId={{item.storeId}}" class="card-flip store_card">
+						<div class="flipper" style="margin-top:10px;margin-bottom:10px;">
+							<div class="front card card-light card-lightest card-border-solid" style="padding:0px;">
+								<div class="img_height">
+									<img
+										src="{{imagePath}}"
+										alt=""
+										style="width:100%;">
+								</div>
+								<hr class="hr-nobg hr-sm" />
+								<h4>{{item.name}}</h4>
+								<p class="text-left local_p">
+									{%if item.normalTime || item.satTime || item.holiTime%}<strong>영업시간</strong> <br>{%endif%}
+									 {%if item.normalTime%}<span>&nbsp;&nbsp;&nbsp;&nbsp;평일: {{item.normalTime}}</span>{%endif%}
+									 {%if item.satTime%}<span>토요일: {{item.satTime}}</span>{%endif%}
+									 {%if item.holiTime%}<span>일요일: {{item.holiTime}}</span>{%endif%}
+									 {%if item.normalTime || item.satTime || item.holiTime%}<span style="height:10px"></span>{%endif%}
+									<strong>전화번호</strong>
+									<span onclick="location.href='tel://{{item.tel}}'; return false;">{{item.tel}}</span>
+									 <span style="height:10px"></span>
+									<strong>주소</strong>
+									<span>{{item.address}}</span>
+
+								</p>
+								<div class="heading-divider"></div>
+								<hr class="hr-nobg hr-sm" />
+							</div>
+							<div class="back card card-dark"  style="padding:0px;">
+								<div class="img_height">
+									<img
+										src="{{imagePath}}"
+										alt=""
+										style="width:100%;">
+								</div>
+								<hr class="hr-nobg hr-sm" />
+								<h4>{{item.name}}</h4>
+								<p class="text-left local_p">
+									{%if item.normalTime || item.satTime || item.holiTime%}<strong>영업시간</strong> <br>{%endif%}
+									 {%if item.normalTime%}<span>&nbsp;&nbsp;&nbsp;&nbsp;평일: {{item.normalTime}}</span>{%endif%}
+									 {%if item.satTime%}<span>토요일: {{item.satTime}}</span>{%endif%}
+									 {%if item.holiTime%}<span>일요일: {{item.holiTime}}</span>{%endif%}
+									 {%if item.normalTime || item.satTime || item.holiTime%}<span style="height:10px"></span>{%endif%}
+									<strong>전화번호</strong>
+									<span onclick="location.href='tel://{{item.tel}}'; return false;">{{item.tel}}</span>
+									 <span style="height:10px"></span>
+									<strong>주소</strong>
+									<span>{{item.address}}</span>
+
+								</p>
+								<div class="heading-divider"></div>
+								<hr class="hr-nobg hr-sm" />
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+			<hr class="hr-nobg hr-sm" />
+		{% endfor %}
+
+		<div class="text-center">
+			<span style="font-size:20px; font-weight:600; vertical-align:middle; ">※ 지점 모집중 ( 문의:010-2930-5055 )</span>&nbsp;
+			<!-- <h4 style="display:inline-block">지점 모집 중 (문의:010-2930-5055)</h4>&nbsp;&nbsp; -->
+			<img src="../../images/100x100.png" alt="" width="50" height="50">
+		</div>
+		<hr class="hr-nobg hr-md">
+	</div>
+
+<script>
+	var data = {{JSON.stringify(groups,0,4)}};
+	$(document).ready(function(){
+		// 리사이즈 보정
+		$('.img_height').css({height:$('.front.card').width() / 1.3});
+		$('.back.card').css({width:$('.front.card').width()});
+		$(window).resize(function(){
+			$('.img_height').css({height:$('.front.card').width() / 1.3});
+			$('.back.card').css({width:$('.front.card').width()});
+		});
+
+		// 카드 height 통일
+		function getHeight(target){
+            var arr = [];
+            var temp = 0;
+            target.css({
+                height:'auto'
+            });
+            target.each(function(){
+                arr.push($(this).outerHeight());
+            });
+            for(i in arr){
+                (arr[i] > temp)? temp = arr[i] : temp = temp;
+            }
+            target.css({
+                height:temp
+            });
+        }
+        getHeight($('.box1 .card'));
+		getHeight($('#slider-0 .cards ul li a'));
+
+        $(window).resize(function(){
+            getHeight($('.box1 .card'));
+			getHeight($('#slider-0 .cards ul li a'));
+        });
+
+		//쿠키설정
+
+		//쿠키 가져오기
+		function getCookie( name ) {
+		   var nameOfCookie = name + "=";
+		   var x = 0;
+		   while ( x <= document.cookie.length )
+		   {
+		       var y = (x+nameOfCookie.length);
+		       if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+		           if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+		               endOfCookie = document.cookie.length;
+		           return unescape( document.cookie.substring( y, endOfCookie ) );
+		       }
+		       x = document.cookie.indexOf( " ", x ) + 1;
+		       if ( x == 0 )
+		           break;
+		   }
+		   return "";
+		}
+		//팝업 열기
+		function openWin( winName ) {
+			console.log("openWin");
+		   var blnCookie    = getCookie( winName );
+		   if( !blnCookie ) {			   
+			   $('#open_pop').css({
+   					'display':'block'
+   				});
+		   }
+		}
+		// 24시간 기준 쿠키 설정하기
+		function setCookie( name, value, expiredays ) {
+		   var todayDate = new Date();
+		   todayDate.setDate( todayDate.getDate() + expiredays );
+		   document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+		}
+
+		openWin('iFixItKorea');
+
+		// 창닫기
+		$('#popup_pc_today').on("click",function(){
+			setCookie("iFixItKorea", "done", 1);
+			$('#open_pop').css({
+				'display':'none'
+			});
+		});
+		$('#popup_mobile_today').on("click",function(){
+			setCookie("iFixItKorea", "done", 1);
+			$('#open_pop').css({
+				'display':'none'
+			});
+		});
+
+		$('#popup_pc_close').on("click",function(){
+			$('#open_pop').css({
+				'display':'none'
+			});
+		});
+
+		$('#popup_mobile_close').on("click",function(){
+			$('#open_pop').css({
+				'display':'none'
+			});
+		});
+	});
+
+	// var topVedio = setInterval(function(){
+	// 	$('.html5vid.HasListener.fullcoveredvideo').css({
+	// 		'top':0
+	// 	});
+
+	//
+	// },1)
+
+
+
+</script>
+<script>
+
+function get_version_of_IE () {
+
+	 var word;
+	 var version = "N/A";
+
+	 var agent = navigator.userAgent.toLowerCase();
+	 var name = navigator.appName;
+
+	 // IE old version ( IE 10 or Lower )
+	 if ( name == "Microsoft Internet Explorer" ) word = "msie ";
+
+	 else {
+		 // IE 11
+		 if ( agent.search("trident") > -1 ) word = "trident/.*rv:";
+
+		 // Microsoft Edge
+		 else if ( agent.search("edge/") > -1 ) word = "edge/";
+	 }
+
+	 var reg = new RegExp( word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})" );
+
+	 if (  reg.exec( agent ) != null  ) version = RegExp.$1 + RegExp.$2;
+
+	 return version;
+}
+if(parseInt(get_version_of_IE()) <= 11 && parseInt(get_version_of_IE()) >= 8){
+	$('.bannercontainer').css({
+		'top':'-60px'
+	});
+	$('.content.no-all-paddings').css({
+		'marginTop':'-60px'
+	});
+}
+
+window.onload = function(){
+	// 리사이즈 보정
+	if(parseInt(get_version_of_IE()) <= 8){
+		$('.img_height img').css({'height':200,'width':'100%'});
+	}else{
+		$('.img_height img').css({'height':$('.img_height img').width() / 1.3});
+		$('.back.card').css({width:$('.front.card').width()});
+	}
+
+
+	$(window).resize(function(){
+		$('.img_height img').css({'height':$('.img_height img').width() / 1.3});
+		$('.back.card').css({width:$('.front.card').width()});
+	});
+
+	// 카드 height 통일
+	var con;
+	function getHeight(target){
+		var arr = [];
+		var temp = 0;
+		target.css({
+			height:'auto'
+		});
+		target.each(function(){
+			if(parseInt(get_version_of_IE()) <= 8){
+				arr.push(650);
+			}else{
+				arr.push($(this).height());
+			}
+		});
+		for(i in arr){
+			(arr[i] > temp)? temp = arr[i] : temp = temp;
+		}
+		target.css({
+			height:temp
+		});
+		con = arr;
+
+	}
+	getHeight($('.box1 .card'));
+	$(window).resize(function(){
+		getHeight($('.box1 .card'));
+	});
+
+};
+</script>
+
+{% endblock %}
+
+

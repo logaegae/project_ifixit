@@ -1,0 +1,519 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+
+
+
+	<!-- PAGE TITLE -->
+	<header class="pagetitle pagetitle-sm">
+		<div class="container">
+			<div class="divtable irow">
+				<div class="divcell">
+					<i class="fa fa-columns"></i>
+					<h1>메인보드 수리</h1>
+					<div class="divider"></div>
+					<span class="subtitle">메인보드 수리 및 의뢰</span>
+				</div>
+				<div class="divcell text-right">
+					<ol class="breadcrumb">
+						<li><a href="#">홈</a></li>
+						<li class="active">메인보드 수리</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /.pagetitle -->
+	<!-- CONTENT -->
+	<div class="content">
+		<!-- mainboard repair -->
+		<div class="container">
+			<section class="row page-header text-center">
+				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+					<div class="icon icon-color icon-size-7">
+						<i class="fa fa-hdd-o"></i>
+					</div>
+					<h1>메인보드 수리란?</h1>
+					<p>사용중 부주의 또는 소프트웨어의 오류 등으로 인하여 단말기가 정상동작을 못하거나 구동이 안될때,
+						<br>단말기의 핵심인 PCB 어셈블리를 칩셋단위로 수리하는 것을 말합니다.</p>
+				</div>
+			</section>
+		</div>
+		<!-- /.mainboard repair -->
+		<hr class="hr-nobg hr-md">
+		<!-- repair service -->
+		<div class="highlight highlight-light background overlay repaire_back" style="background-image: url('../../images/rapair_a.jpg'); ">
+			<br>
+			<br>
+			<br>
+			<section class="container">
+				<div class="row irow-xs cards-separate cards box_expact">
+					<h3 class="text-center">증상 및 예상 견적</h3>
+					<br><br>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa  fa-tint "></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>침수, 충격
+									<small>내부 Clanining 및 재조립 등(간단수리)</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>3만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-tint"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>침수, 충격
+									<small>전원불, 먹통, 과열, 오동작 등(난수리)</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>전원불량, 과열, 다운, 리부팅
+									<small>침수, 충격 제외</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-plug"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>충전불량
+									<small>충전인식불량, 오동작 등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-plug"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>usb인식 안됨
+									<small>인식오류</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa  fa-mobile-phone"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>화면불량 또는 오동작
+									<small>LCD자체 픽셀불량제외</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa  fa-mobile-phone"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>터치안됨 또는 오동작
+									<small>LCD자체 불량제외</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-wifi"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>wifi 안됨 인식불량
+									<small>블루투스, GPS등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-bell-slash"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>오디오 불량
+									<small>송수화음, 외부스피커등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>진동 불량
+									<small>진동 오작동 등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa  fa-toggle-on"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>버튼 불량
+									<small>파워, 볼륨, 홈버튼 등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>센서 불량
+									<small>근접센서, 조도센서등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-camera"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>카메라 불량
+									<small>카메라모듈 불량제외</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>오류코드
+									<small>복원/업그레이드오류, 레드/블루스크린</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>5만원 ~ 15만원 이내
+									<br>
+									<b>20분~4일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="javascript:void(0)" class="col-sm-4 card card-light card-lightest">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-stethoscope"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>기타 불량
+									<small>자가수리 불량 포함</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>상담 후 안내
+									<br>
+									<b>20분~4일이상</b>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<br>
+				<p class="text-center">
+					<strong>*수리기간이 지연될 경우 남기신 연락처로 안내전화 드립니다.</strong>
+					<br>
+					<strong>*메인보드 수리비용과 시간은 수리난이도에 따라 차이가 있습니다.</strong>
+					<br>
+					<strong style="color:#da3636">*메인보드 훼손, 수리흔적, 잡땜흔적등이 있는 경우 기본 수리비 +50%추가 청구됩니다.</strong>
+				</p>
+			</section>
+		</div>
+		<!-- /.repair service -->
+		<hr class="hr-nobg hr-md">
+		<!-- process -->
+		<div class="container">
+			<section class="row page-header text-center">
+				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+					<h1>메인보드수리 절차</h1>
+					<p>데이터복구가 필요없는 단말기를 직접수리하여 정상적으로 사용할 수 있도록 칩단위로 수리합니다.(복구 목적이 아닌 메인보드만 수리시 초기화 상태로 출고 될 수 있습니다.)</p>
+				</div>
+			</section>
+			<br />
+			<br />
+			<h3>내방접수</h3>
+			<p>※ 단말기 전체 점검을 위해 단말기의 비밀번호를 기재해 주시기 바랍니다.</p>
+			<br>
+			<!-- visit -->
+			<div class="slider carousel steps-2 cards steps-noborder">
+				<div class="row">
+					<ul data-max-items="3" data-fx="scroll" data-circular="false">
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa  fa-phone"></i>
+								</div>
+								<h4>1.게시판 및 전화문의</h4>
+								<p>문의 상담</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-edit"></i>
+								</div>
+								<h4>2.내방/접수</h4>
+								<p>해당서류 지참</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-stethoscope"></i>
+								</div>
+								<h4>3.진단/테스트</h4>
+								<p>견적안내</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-wrench"></i>
+								</div>
+								<h4>4.수리/결과안내</h4>
+								<p>복구결과안내</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-truck"></i>
+								</div>
+								<h4>5.결재/제품출고</h4>
+								<p>직접 출고</p>
+							</a>
+						</li>
+					</ul>
+					<a href="" class="slider-arrow arrow-out slider-arrow-prev"></a>
+					<a href="" class="slider-arrow arrow-out slider-arrow-next"></a>
+				</div>
+				<nav class="slider-pagination"></nav>
+			</div>
+			<!-- /.visit -->
+			<hr class="hr-nobg">
+			<h3>택배접수</h3>
+			<p>※ 단말기 전체 점검을 위해 단말기의 비밀번호, 잠금패턴, 클라우드 잠금은 해제 또는 코드 내용을 기재해 주시기 바랍니다.</p>
+			<br>
+			<!-- delivery -->
+			<div class="slider carousel steps-2 cards steps-noborder">
+				<div class="row">
+					<ul data-max-items="3" data-fx="scroll" data-circular="false">
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa  fa-phone"></i>
+								</div>
+								<h4>1.게시판 및 전화문의</h4>
+								<p>문의 상담</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-edit"></i>
+								</div>
+								<h4>2.제품 및 서류 발송</h4>
+								<p>택배 발송</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-stethoscope"></i>
+								</div>
+								<h4>3.진단/테스트</h4>
+								<p>견적통보</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-wrench"></i>
+								</div>
+								<h4>4.수리/결과통보</h4>
+								<p>복구결과통보</p>
+							</a>
+						</li>
+						<li class="col-sm-4 card card-light card-lighter">
+							<a href="javascript:void(0)">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-truck"></i>
+								</div>
+								<h4>5.결재/제품출고</h4>
+								<p>택배 발송</p>
+							</a>
+						</li>
+					</ul>
+					<a href="" class="slider-arrow arrow-out slider-arrow-prev"></a>
+					<a href="" class="slider-arrow arrow-out slider-arrow-next"></a>
+				</div>
+				<nav class="slider-pagination"></nav>
+			</div>
+			<!-- /.delivery -->
+		</div>
+			<!--/.process -->
+			<!-- button -->
+		<div class="container">
+			<p class="text-center">
+				<a href="application_mainboard.html" class="btn btn-inverse btn-border btn-xl btn-wide">수리의뢰</a>
+			</p>
+			<br>
+		</div>
+			<!-- ./button -->
+	</div>
+
+	<!-- /.content -->
+
+	<script>
+
+		window.onload = function(){
+	        function getHeight(target){
+	            var arr = [];
+	            var temp = 0;
+	            target.css({
+	                height:'auto'
+	            });
+	            target.each(function(){
+	                arr.push($(this).outerHeight());
+	            });
+	            for(i in arr){
+	                (arr[i] > temp)? temp = arr[i] : temp = temp;
+	            }
+	            target.css({
+	                height:temp
+	            });
+	        }
+
+	        getHeight($('.box_expact .card'));
+	        $(window).resize(function(){
+	            getHeight($('.box_expact .card'));
+	        })
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="description" content="대한민국 원조 아이폰 수리 업체. 소니,블랙베리 수리전문점.유사업체주의">
+	<meta name="naver-site-verification" content="08f4d69573eb904b030363f99c9b81ef02425a9c"/>
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="아이픽스잇코리아">
+	<meta property="og:description" content="대한민국 원조 아이폰 수리 업체. 소니,블랙베리 수리전문점.유사업체주의">
+	<meta property="og:image" content="/images/logo.png">
+	<meta property="og:url" content="http://ifixitkor.com">
+	<title>아이픽스잇코리아</title>
+	<link href="../../favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!--[if lte IE 7]>
+		<meta http-equiv="refresh" content="0;url='underIe8.html'" />
+	<![endif]-->
+	<script>
+
+	function getInternetExplorerVersion() {
+	         var rv = -1; // Return value assumes failure.
+	         if (navigator.appName == 'Microsoft Internet Explorer') {
+	              var ua = navigator.userAgent;
+	              var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+	              if (re.exec(ua) != null)
+	                  rv = parseFloat(RegExp.$1);
+	             }
+	         return rv;
+	}
+
+	if(getInternetExplorerVersion() <= 7 && getInternetExplorerVersion() >= 1) {
+		location.href = "underIe8.html";
+	}
+	</script>
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,cyrillic" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<link href="../../css/preloader.css" rel="stylesheet">
+	<link href="../../css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../../css/animate.css" rel="stylesheet">
+	<link href="../../css/revolution.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+
+	<style>
+		header.main{
+			padding-top:10px;
+			padding-bottom:10px;
+		}
+		address{
+			margin: 20px 0 20px 10px
+		}
+		address p{
+			margin: 0
+		}
+	</style>
+
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+
+
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader"></div>
+
+<!-- HEADER -->
+<header class="header header-light main">
+
+	<!-- NAVBAR -->
+	<nav class="navbar container">
+
+		<!-- NAVBAR BRAND -->
+		<a class="navbar-brand pull-left nav_logo" href="/">
+			<img src="/images/logo.png" alt="I FIX it KOREA" >
+		</a>
+		<!-- /.navbar-brand -->
+
+
+
+		<button class="navbar-toggle pull-right" data-target="#navbar" data-toggle="collapse" type="button">
+			<i class="fa fa-bars"></i>
+		</button>
+
+		<!-- navbar-appication/notice -->
+		<div class="pull-right" style="margin:30px 0 15px">
+			<span class="nav_menu_a">
+				<a href="contact.html">수리문의</a>
+			</span>
+			<span class="nav_menu_a" style="padding-right:5px">
+				<a href="notice.html">공지사항</a>
+			</span>
+		</div>
+
+				<!-- NAVBAR COLLAPSE -->
+		<div id="navbar" class="navbar-collapse collapse pull-right" style="margin-bottom:10px">
+
+			<ul class="nav navbar-nav">
+				<li {% if menuUrl == 'home.html' %}class="active"{% endif %}>
+					<a href="home.html">메인</a>
+				</li>
+				<li {% if menuUrl == 'intro.html' %}class="active"{% endif %}>
+					<a href="intro.html">회사소개</a>
+				</li>
+				<li {% if menuUrl == 'location.html' || menuUrl == 'location_detail.html' %}class="active"{% endif %}>
+					<a href="location.html">지점안내</a>
+				</li>
+				<li {% if menuUrl == 'iphone.html' %}class="active"{% endif %}>
+					<a href="iphone.html">아이폰 수리비용</a>
+				</li>
+				<li {% if menuUrl == 'sony.html' %}class="active"{% endif %}>
+					<a href="sony.html">SONY,블랙베리 수리비용</a>
+				</li>
+				<li {% if menuUrl == 'mainboard.html' || menuUrl == 'application_mainboard.html' %}class="active"{% endif %}>
+					<a href="mainboard.html">메인보드 수리</a>
+				</li>
+				<li {% if menuUrl == 'data.html' || menuUrl == 'data_repair.html' || menuUrl == 'data_emergency.html' || menuUrl == 'data_evidence.html' || menuUrl == 'application.html'%}class="active"{% endif %}>
+					<a href="data.html">데이터복구</a>
+				</li>
+				<li class="nav_menu_b">
+					<a href="contact.html">수리문의</a>
+				</li>
+				<li class="nav_menu_b">
+					<a href="notice.html">공지사항</a>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+
+
+	</nav>
+	<!-- /.navbar -->
+
+</header>
+<!-- /.header -->
+
+<!-- WRAPPER -->
+<div class="wrapper" >
+	{% block content %}{% endblock %}
+</div>
+<!-- /.wrapper -->
+
+<!-- FOOTER -->
+<footer class="footer footer-dark">
+
+		<!-- FOOTER EXTRA -->
+	<div class="footer-extra">
+		<div class="container">
+
+			<a class="navbar-brand pull-left" href="#"><img
+			src="/images/blogo.png"
+			alt="Mexico" style="width:280px;height:auto;"></a>
+			<address class="pull-left">
+				<p>
+					<span>업체명 : 아이픽스잇코리아(드림텍)&nbsp;&nbsp;|&nbsp;&nbsp;대표자 : 백승봉 (Email : hpas2002@naver.com)</span>
+				</p>
+				<p>
+					<span>사업자등록번호 : 214-05-75575&nbsp;&nbsp;</span>
+					<span class="footer_divice">|</span>
+					<span>&nbsp;&nbsp; 통신판매업신고번호 : 제2010-서울서초-0585호</span>
+				</p>
+				<p>
+					<span>주소 : 서울특별시 서초구 서초동 1318-13 서초현대타워 803호 &nbsp;&nbsp;</span>
+					<span class="footer_divice">|</span>
+					<span>&nbsp;&nbsp;전화번호 : 070-4028-5234</span>
+				</p>
+				<p class="copyrights">
+					&copy; Copyrights 2016 아이픽스잇코리아&nbsp;
+				</p>
+			</address>
+			<br>
+
+			<!-- <div class="divider pull-right"></div> -->
+			<nav class="extra-menu pull-right">
+				<a href="intro.html">회사소개</a>
+				<a href="location.html">지점안내</a>
+				<a href="notice.html">공지사항</a>
+			</nav>
+
+		</div>
+	</div>
+	<!-- /.footer-extra -->
+
+</footer>
+
+<!--<script src="../../js/jquery-2.1.4.min.js"></script>-->
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/plugins.js"></script>
+<script src="../../js/fontawesome-markers.min.js"></script>
+<script src="../../js/custom.js"></script>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var filter = "win16|win32|win64|mac";
+
+	if(navigator.platform){
+		if(0 > filter.indexOf(navigator.platform.toLowerCase()) || getInternetExplorerVersion() == 8){
+		// mobile
+// 			$('.video_a').addClass('mobile_image_a').find('video').addClass('mobile_video');
+// 			$('.video_b').addClass('mobile_image_b').find('video').addClass('mobile_video');
+// 			$('#open_pop .popup_pc').css('display','none').find('.popup_mobile').css('display','block').parents('#open_pop').css('left',0);
+			$('#open_pop .popup_pc').css('display','none').next().css('display','block');
+			$('#open_pop .popup_pc').next().next().css('display','block');
+			$('#open_pop').css('left',0);
+			
+			$("ul.banner_video").find("li").eq(0).css("background-image","url(../../images/mobile_a.jpg)");
+			$("ul.banner_video").find("li").eq(1).css("background-image","url(../../images/mobile_b.jpg)");
+		}else{
+			// pc
+			// $('.video_a').addClass('mobile_image_a').find('video').addClass('mobile_video');
+			// $('.video_b').addClass('mobile_image_b').find('video').addClass('mobile_video');
+			// $('#open_pop .popup_pc').css('display','none').next().css('display','block').parents('#open_pop').css('left',0)
+		}
+	}
+
+})
+
+</script>
+
+	{%if isReal%}
+	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+	if(!wcs_add) var wcs_add = {};
+	wcs_add["wa"] = "ce9528f3b9dc20";
+	wcs_do();
+	</script>
+
+
+		<!--  CPCGUARD SCRIPT V6.0 -->
+		{%if deviceInfo.Mobile%}
+			<script type="text/javascript">
+				(function(){
+				var _script = document.createElement("script"); _script.id= "include_cpc_script"; _script.type = "text/javascript"; _script.charset = "utf-8"; _script.async = true; _script.src = (document.location.protocol || "http:") + "//nsc1.cpcguard.com/mobile/cpc_script.js";
+				 var _node = document.getElementsByTagName("script")[0]; _node.parentNode.insertBefore(_script, _node);
+			  })();
+			</script>
+		{%else%}
+			<script type="text/javascript">
+				(function(){
+				var _script = document.createElement("script"); _script.id= "include_cpc_script"; _script.type = "text/javascript"; _script.charset = "utf-8"; _script.async = true; _script.src = (document.location.protocol || "http:") + "//nsc1.cpcguard.com/new/cpc_script.js";
+				 var _node = document.getElementsByTagName("script")[0]; _node.parentNode.insertBefore(_script, _node);
+			  })();
+			</script>
+		{%endif%}<!-- CPCGUARD SCRIPT END -->
+
+	{%endif%}
+	
+<script type="text/javascript">
+    var roosevelt_params = {
+        retargeting_id:'oNPgJSEL8.m72rISWr_urQ00',
+        tag_label:'i5HV7ifuT_ilUrj76jyh1Q'
+    };
+</script>
+<script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async></script>\
+
+<!--  KOIS ADVERTISEMENT SCRIPT V1.0 -->
+<script type='text/javascript'>
+ var advertisement_site = 6672;
+ (function(){
+ var _script = document.createElement('script'); _script.id= 'include_advertisement_script'; _script.type = 'text/javascript'; _script.charset = 'utf-8'; _script.async = true; _script.src = (document.location.protocol || 'http:') + '//advertisement.kois.co.kr/advertisement/advertisement_script.js';
+ var _node = document.getElementsByTagName('script')[0]; _node.parentNode.insertBefore(_script, _node);
+ })();
+</script>
+<!-- KOIS ADVERTISEMENT SCRIPT V1.0 END -->
+		
+
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+/*@media print{
+    #print_table table tbody th,
+    #print_table table tbody td{
+        border:1px solid #000;
+        font-size: 200px;
+    }
+}*/
+    table th{
+        text-align: center;
+        background-color: #fafafa;
+        vertical-align: middle !important;
+    }
+    label{
+        font-weight: normal;
+        margin-right:20px;
+    }
+    label input{
+        margin-right:5px !important;
+    }
+    /*.print_logo{outline: 1px #000 solid;
+        background: url('../../images/logo.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 200px;
+        height: 50px;
+    }*/
+
+    .hp1::after{
+        content:"-";
+        position:absolute;
+        top:10px;
+        right:15px;
+    }
+    .hp2::after{
+        content:"-";
+        position:absolute;
+        top:1px;
+        right:15px;
+    }
+    .appli_table_textbox{
+        width:100%;
+        overflow-y:scroll;
+        border:1px #AAA solid;
+        margin:10px auto;
+        padding:15px;
+    }
+    .request_span{
+        color:#F00 ;
+    }
+    .table-responsive > .table > tbody > tr >td >.table_label{
+        white-space: normal ;
+    }
+    .table_label label{
+        width: 193px;
+        vertical-align: top
+    }
+
+
+    @media screen and (max-width: 479px) {
+        .hp{
+            width:15%;
+            display:inline-block;
+        }
+    }
+
+
+</style>
+    <!-- PAGE TITLE -->
+    <header class="pagetitle pagetitle-sm">
+    	<div class="container">
+    		<div class="divtable irow">
+    			<div class="divcell">
+    				<i class="fa fa-file-o"></i>
+    				<h1>메인보드 수리</h1>
+    				<div class="divider"></div>
+    				<span class="subtitle">메인보드 수리 의뢰</span>
+    			</div>
+    			<div class="divcell text-right">
+    				<ol class="breadcrumb">
+    					<li><a href="#">홈</a></li>
+    					<li class="active">메인보드 수리</li>
+    				</ol>
+    			</div>
+    		</div>
+    	</div>
+    </header>
+    <!-- /.pagetitle -->
+
+    <!-- CONTENT -->
+
+    <div class="content">
+        <div class="container">
+            <!-- <div class="text-center">
+                <div class="heading-divider"></div>
+                <h3 class="text-center">수리 의뢰서</h3>
+            </div> -->
+            <!-- <hr class="hr-nobg"> -->
+            <!-- beforebegin --><form action="print.html" method="post" target="_blank"><!-- afterbegin -->
+                <fieldset id="print_page">
+                    <legend class="sr-only">복구의뢰신청</legend>
+                    <div id="print_table" class="table-responsive form-group">
+                        <div class="text-left print_logo"><img src="../../images/logo.png" alt="" style="display:none;"></div>
+                        <div class="text-center">
+                            <div class="heading-divider"></div>
+                            <h3 class="text-center" style="margin-top:20px">수리 의뢰서</h3>
+                            <br>
+                        </div>
+
+        				<table class="table table-bordered" >
+                            <colgroup>
+                                <col width="20%">
+                                <col width="30%">
+                                <col width="20%">
+                                <col width="30%">
+                            </colgroup>
+        					<tbody>
+                                <tr>
+            						<th>의뢰지점</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.storeId}}" name="storeId">
+                                            {{storeInfo.name}}
+                                        </span>
+                                    </td>
+            					<!-- </tr>
+                                <tr> -->
+            						<th>접수방법</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.way}}" name="way">
+                                            {{body.way}}
+                                        </span>
+                                    </td>
+            					</tr>
+                                <tr>
+            						<th>고객명</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.name}}" name="name">
+                                            {{body.name}}
+                                        </span>
+                                    </td>
+            					<!-- </tr>
+                                <tr> -->
+            						<th>연락처</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.phone}}" name="phone">
+                                            {{body.phone}}
+                                        </span>
+                                    </td>
+            					</tr>
+                                <tr>
+            						<th>휴대폰모델</th>
+            						<td style="padding-left:15px">
+            						    <span>
+                                            <input type="hidden" value="{{body.modelName}}" name="modelName">
+                                            {{body.modelName}}
+                                        </span>
+            						</td>
+            					<!-- </tr>
+                                <tr> -->
+            						<th>일련번호</th>
+            						<td style="padding-left:15px">
+            						    <span>
+                                            <input type="hidden" value="{{body.modelNumber}}" name="modelNumber">
+                                            {{body.modelNumber}}
+                                        </span>
+            						</td>
+            					</tr>
+                                <tr>
+            						<th>핸드폰분류</th>
+                                    <td colspan="3" style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.phoneType}}" name="phoneType">
+                                            {{body.phoneType}}
+                                        </span>
+                                        <span>
+                                            <input type="hidden" value="{{body.phoneMaker}}" name="phoneMaker">
+                                            {{body.phoneMaker}}
+                                        </span>
+                                    </td>
+            					</tr>
+                                <tr>
+            						<th>긴급여부</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.urgent}}" name="urgent">
+                                            {{body.urgent}}
+                                        </span>
+                                    </td>
+            					<!-- </tr>
+                                <tr> -->
+            						<th>정상여부</th>
+            						<td style="padding-left:15px">
+                                        <span>
+                                            <input type="hidden" value="{{body.nomal}}" name="nomal">
+                                            {{body.nomal}}
+                                        </span>
+                                    </td>
+            					</tr>
+                                <tr>
+                                    <th>복구항목</th>
+                                    <td colspan="3">
+                                        <div class="table_label requires">
+                                            <label for="damage_1"><input type="checkbox" name="requirement[]" disabled value="전화번호부 200건 이하" id="damage_1">전화번호부 200건 이하</label>
+                                            <label for="damage_2"><input type="checkbox" name="requirement[]" disabled value="전화번호부 500건 이하" id="damage_2">전화번호부 500건 이하</label>
+                                            <label for="damage_3"><input type="checkbox" name="requirement[]" disabled value="전화번호부 500건 이하" id="damage_3">전화번호부 500건 이하</label>
+                                            <label for="damage_4"><input type="checkbox" name="requirement[]" disabled value="전화번호부 1000건 이상" id="damage_4">전화번호부 1000건 이상</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_5"><input type="checkbox" name="requirement[]" disabled value="사진(일반)" id="damage_5">사진(일반)</label>
+                                            <label for="damage_6"><input type="checkbox" name="requirement[]" disabled value="동영상(일반)" id="damage_6">동영상(일반)</label>
+                                            <label for="damage_7"><input type="checkbox" name="requirement[]" disabled value="일정(스케쥴)" id="damage_7">일정(스케쥴)</label>
+                                            <label for="damage_8"><input type="checkbox" name="requirement[]" disabled value="메모(Text)" id="damage_8">메모(Text)</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_9"><input type="checkbox" name="requirement[]" disabled value="S메모" id="damage_9">S메모</label>
+                                            <label for="damage_10"><input type="checkbox" name="requirement[]" disabled value="기타(HWP, PDF, XLS, PPT)" id="damage_10">기타(HWP, PDF, XLS, PPT)</label>
+                                            <label for="damage_11"><input type="checkbox" name="requirement[]" disabled value="문자메시지(분석)" id="damage_11">문자메시지(분석)</label>
+                                            <label for="damage_12"><input type="checkbox" name="requirement[]" disabled value="통화내역(분석)" id="damage_12">통화내역(분석)</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_13"><input type="checkbox" name="requirement[]" disabled value="카카오톡(분석)" id="damage_13">카카오톡(분석)</label>
+                                            <label for="damage_14"><input type="checkbox" name="requirement[]" disabled value="마이피플(분석)" id="damage_14">마이피플(분석)</label>
+                                            <label for="damage_15"><input type="checkbox" name="requirement[]" disabled value="네이버라인(분석)" id="damage_15">네이버라인(분석)</label>
+                                            <label for="damage_16"><input type="checkbox" name="requirement[]" disabled value="틱톡(분석)" id="damage_16">틱톡(분석)</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_17"><input type="checkbox" name="requirement[]" disabled value="네이트온(분석)" id="damage_17">네이트온(분석)</label>
+                                            <label for="damage_18"><input type="checkbox" name="requirement[]" disabled value="기타어플(분석)" id="damage_18">기타어플(분석)</label>
+                                            <label for="damage_19"><input type="checkbox" name="requirement[]" disabled value="음성(분석)" id="damage_19">음성(분석)</label>
+                                            <label for="damage_20"><input type="checkbox" name="requirement[]" disabled value="사진(문자첨부)" id="damage_20">사진(문자첨부)</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_21"><input type="checkbox" name="requirement[]" disabled value="사진(어플첨부)" id="damage_21">사진(어플첨부)</label>
+                                            <label for="damage_22"><input type="checkbox" name="requirement[]" disabled value="인터넷로그(분석)" id="damage_22">인터넷로그(분석)</label>
+                                            <label for="damage_23"><input type="checkbox" name="requirement[]" disabled value="기타(분석)" id="damage_23">기타(분석)</label>
+                                            <label for="damage_24"><input type="checkbox" name="requirement[]" disabled value="확인서" id="damage_24">확인서</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_25"><input type="checkbox" name="requirement[]" disabled value="감정서" id="damage_25">감정서</label>
+                                            <label for="damage_26"><input type="checkbox" name="requirement[]" disabled value="모바일포렌식" id="damage_26">모바일포렌식</label>
+                                            <label for="damage_27"><input type="checkbox" name="requirement[]" disabled value="프리미엄" id="damage_27">프리미엄</label>
+                                            <label for="damage_28"><input type="checkbox" name="requirement[]" disabled value="패키지A(전번+사진)" id="damage_28">패키지A(전번+사진)</label>
+                                        <!-- </div>
+                                        <div class="table_label"> -->
+                                            <label for="damage_29" style="width:210px"><input type="checkbox" name="requirement[]" disabled value="패키지B(전번+사진+동영상)" id="damage_29">패키지B(전번+사진+동영상)</label>
+                                            <input type="hidden" value="{{body.requirement}}" name="requirement">
+                                        </div>
+                                    </td>
+            					</tr>
+                                <tr>
+            						<th>요청사항(세부)</th>
+            						<td colspan="3" style="padding-left:15px">
+            						    <span class="table_label">{{body.content}}</span>
+            						</td>
+            					</tr>
+                                <tr>
+            						<td colspan="4" style="padding:0px 3% 10px;">
+                                        <br>
+                                        <div class="text-left">
+                                            <span class=" request_span">&nbsp;▶ 휴대폰에 저장된 Data는 AS(업그레이드 포함) 중 유실 될 수 있으므로, 수리의회 전 별도 기록(백업) 보관 후 접수 해야 하며, 이에 대한 책임은 단말기사용자에게 있습니다.</span>
+                                            <br>
+                                            <span class=" request_span">&nbsp;▶ 의뢰 된 제품은 테스트 및 수리 과정 중 보호 필름 등이 손실 될 수 있으며, 센터에서는 손실에 대한 책임을 지지 않습니다.</span>
+                                        </div>
+                                        <br>
+                                        <!-- <div class="text-left"> -->
+                                            <span class="pull-left">&nbsp;위의 중요 안내 내용을 이해하였으며, 이에 동의 합니다.</span>
+                                        <!-- </div> -->
+                                        <br>
+                                        <div class="text-center" style="margin:20px 0 15px">
+                                            {% set now = Date() %}
+                                            <span>20{{now | date('y')}}</span><span>년&nbsp;&nbsp;</span><span>{{now | date('m')}}</span><span>월&nbsp;&nbsp;</span><span>{{now | date('d')}}</span><span>일</span>
+                                        </div>
+                                        <div class="text-right" style="margin:15px 0">
+                                            서명&nbsp;&nbsp;&nbsp;
+                                        </div>
+                                        <br>
+                                    </td>
+            					</tr>
+        					</tbody>
+        				</table>
+        			</div>
+                    <div class="text-center print_button" style="margin-top:5px;">
+                        <!-- <input type="submit" class="btn btn-lg btn-primary" value="인쇄하기" onclick="pagePrint(document.getElementById('print_page'))"> -->
+                        <button type="submit" class="btn btn-lg btn-primary">인쇄하기</button>
+                    </div>
+                </fieldset>
+            <!-- beforeend --></form><!-- afterend -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    window.onload = function(){
+
+        var requi = '{{body.requirement}}'.split('|');
+
+        for(i=0;i<requi.length;i++){
+            for(j=0; j<$('.requires input').length; j++){
+
+                if($('.requires label').eq(j).find('input').attr('value') == requi[i]){
+                    var id = $('.requires label').eq(j).find('input').attr('id');
+                    var target = document.getElementById(id);
+                    target.checked=true;
+                }
+            }
+        }
+
+        // document.getElementById('mybutton').addEventListener('click', function(){
+        //     window.open('Upload.cfm', 'result', 'width=300,height=300');
+        //     document.getElementById('myform').submit();
+        // });
+    }
+
+    </script>
+
+{% endblock %}

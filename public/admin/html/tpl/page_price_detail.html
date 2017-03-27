@@ -1,0 +1,104 @@
+<script type="text/javascript">
+
+angular.module('app').controller('myCtrl', ['$scope', '$rootScope', '$http', '$sce', '$stateParams', '$location', '$state',
+	function($scope, $rootScope, $http, $sce, $stateParams, $location, $state) {
+
+		$http({
+			method : "POST",
+			url : "/admin/api/contact/"+$stateParams.contactId
+		}).success(function(data) {
+			console.log(data);
+			if(data.ContactComments.length == 0) {
+				data.ContactComments.push({
+					contactId : $stateParams.contactId
+				});				
+			}
+			$scope.data = data;
+		});
+		
+		$scope.submit = function () {
+			$http({
+					method : "POST",
+					url : "/admin/api/contact/"+$stateParams.contactId+"/update",
+					data : $scope.data
+			}).success(function(data) {
+				console.log(data);
+				if(!$scope.alerts) {
+					$scope.alerts = [];
+				}
+
+				$scope.addAlert("저장되엇습니다.");
+			});
+
+		};
+
+		$scope.addAlert = function(msg) {
+			$scope.alerts.push({msg: msg, type : 'warning'});
+		};
+
+		$scope.closeAlert = function(index) {
+			$scope.alerts.splice(index, 1);
+		};
+
+	}]
+);
+
+</script>
+<div class="panel panel-default" ng-controller="myCtrl">
+	<div class="panel-heading">상세정보</div>
+	<div class="panel-body">
+		<form class="form-horizontal" method="get" ng-submit="submit()">
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">No</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.contactId}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">제목</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.title}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">작성자</label>
+				<div class="col-sm-10">
+					<p class="form-control-static"><a href="#/app/member/detail/{{data.writerName}}">{{data.writerName}}</a></p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">문의내용</label>
+				<div class="col-sm-10">
+					<p class="form-control-static" style="word-break:break-all;white-space:pre-wrap;">{{data.content}}</p>
+				</div>
+			</div>
+
+			<div ng-repeat="item in data.ContactComments">
+				<div class="line line-dashed b-b line-lg pull-in"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">답변</label>
+					<div class="col-sm-10">
+						<textarea class="form-control" rows="6" placeholder="답변 내용을 입력해주세요." ng-model="item.content"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group">
+				
+				<div class="col-sm-5 col-sm-offset-2">
+					
+					<button onclick="javascript:history.back()" class="btn btn-default">목록</a>
+
+				</div> 
+				<div class="col-sm-5 text-right">
+					<button type="submit" class="btn btn-primary">답변 등록</button>
+					<alert dismiss-on-timeout="2000" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="m-t-sm text-right">{{alert.msg}}</alert>
+
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

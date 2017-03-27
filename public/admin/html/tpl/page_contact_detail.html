@@ -1,0 +1,147 @@
+<script type="text/javascript">
+
+angular.module('app').controller('myCtrl', ['$scope', '$rootScope', '$http', '$sce', '$stateParams', '$location', '$state', '$window',
+	function($scope, $rootScope, $http, $sce, $stateParams, $location, $state, $window) {
+
+		$http({
+			method : "POST",
+			url : "/admin/api/contact/"+$stateParams.contactId
+		}).success(function(data) {
+			console.log(data);
+			if(data.ContactComments.length == 0) {
+				data.ContactComments.push({
+					contactId : $stateParams.contactId
+				});				
+			}
+			$scope.data = data;
+		});
+		
+		$scope.submit = function () {
+			$http({
+					method : "POST",
+					url : "/admin/api/contact/"+$stateParams.contactId+"/update",
+					data : $scope.data
+			}).success(function(data) {
+				console.log(data);
+				alert("저장되었습니다.")
+			});
+
+		};
+
+		
+	    $scope.delete = function () {
+
+	    	if(confirm("삭제 하시겠습니까?")) {
+
+				$http({
+					method : "POST",
+					url : "/admin/api/contact/"+$stateParams.contactId+'/delete',
+				}).success(function(data) {
+					$location.path("/app/contact/list").search();
+				});			
+
+	    	}
+
+	    }
+	    
+	    $scope.deleteComment = function (commentId) {
+
+	    	if(confirm("답글을 삭제 하시겠습니까?")) {
+
+				$http({
+					method : "POST",
+					url : "/admin/api/contact/"+commentId+'/deleteComment',
+				}).success(function(data) {
+					alert("삭제되었습니다.");
+					$window.location.reload();
+				});			
+
+	    	}
+
+	    }
+
+
+
+	}]
+);
+
+</script>
+<div class="panel panel-default" ng-controller="myCtrl">
+	<div class="panel-heading">상세정보</div>
+	<div class="panel-body">
+		<form class="form-horizontal" method="get" ng-submit="submit()">
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">No</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.contactId}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">문의지점</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.Store.name}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">단말기기종</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.PhoneModel.modelName.replace('_',' ')}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">제목</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.title}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">작성자</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.writerName}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">연락처 or 이메일</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{data.writerEmail}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">문의내용</label>
+				<div class="col-sm-10">
+					<p class="form-control-static" style="word-break:break-all;white-space:pre-wrap;">{{data.content}}</p>
+				</div>
+			</div>
+
+			<div ng-repeat="item in data.ContactComments">
+				<div class="line line-dashed b-b line-lg pull-in"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">답변</label>
+					<div class="col-sm-9">
+						<textarea class="form-control" rows="6" placeholder="답변 내용을 입력해주세요." ng-model="item.content"></textarea>
+					</div>
+					<div class="col-sm-1" style="margin-top:10px;">
+						<button type="button" ng-click="deleteComment(item.commentId)" class="btn btn-danger" ng-show="item.commentId">삭제</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group">
+				
+				<div class="col-sm-5 col-sm-offset-2">
+					
+					<button type="button" onclick="javascript:history.back()" class="btn btn-default m-r-sm">목록</a>
+					<button type="button" ng-click="delete()" class="btn btn-danger">삭제</button>
+					
+
+				</div>
+				<div class="col-sm-5 text-right">
+					<button type="submit" class="btn btn-primary">답변 등록</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

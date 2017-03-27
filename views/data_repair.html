@@ -1,0 +1,667 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+    .media-body{
+        width:100%;
+    }
+</style>
+    <!-- PAGE TITLE -->
+    <header class="pagetitle pagetitle-sm">
+    	<div class="container">
+    		<div class="divtable irow">
+    			<div class="divcell">
+    				<i class="fa fa-file-o"></i>
+    				<h1>데이터 복구</h1>
+    				<div class="divider"></div>
+    				<span class="subtitle">데이터 복구 서비스 소개</span>
+    			</div>
+    			<div class="divcell text-right">
+    				<ol class="breadcrumb">
+    					<li><a href="#">홈</a></li>
+    					<li class="active">데이터복구</li>
+    				</ol>
+    			</div>
+    		</div>
+    	</div>
+    </header>
+    <!-- /.pagetitle -->
+
+    <!-- CONTENT -->
+    <div class="content">
+        <!-- 절차 -->
+        <div class="container">
+            <section class="row page-header text-center">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                    <div class="icon icon-color icon-size-7">
+                        <i class="fa fa-history"></i>
+                    </div>
+                    <h1>데이터 복구 서비스</h1>
+                    <p>사용 중 부주의 또는 소프트웨어의 오류 등으로 인하여 단말기가 정상동작을 하지 못하거나 구동이 안될 때, 해당 저장매체에 기록되었던 정보를 다시 읽고 볼 수 있는 상태로 복원해 드립니다.</p>
+                </div>
+            </section>
+        </div>
+
+        <hr class="hr-nobg hr-md">
+
+        <div class="highlight highlight-light">
+			<div class="container text-center">
+                <div class="heading-divider"></div>
+                <h3>복구 가능 데이터</h3><br>
+				<div class="row irow-md text-center cols-border">
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa fa-hdd-o"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">전화번호부</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa fa-envelope-o"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">문자메세지</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa  fa-phone"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">통화내역</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa fa-camera-retro"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">사진 및 동영상</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa fa-volume-up"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">음성</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<a href="" class="icon icon-size-3 icon-color" data-toggle="modal" data-target="#large-modal">
+							<i class="fa fa-folder-open-o"></i>
+						</a>
+						<h5><a href="" data-toggle="modal" data-target="#large-modal">일정 및 메모</a></h5>
+						<div class="heading-divider"></div>
+					</div>
+				</div>
+			</div>
+            <hr class="hr-nobg hr-md">
+		</div>
+        <!-- <hr class="hr-nobg hr-md"> -->
+        <div class="highlight highlight-light background overlay box_expact repaire_back" style="background-image: url('../../images/rapair_a.jpg'); width:100%; height:100% ">
+			<section class="container">
+				<div class="row irow-xs cards-separate cards text-left">
+                    <div class="text-center">
+                        <div class="heading-divider"></div>
+    					<h3 class="text-center">예상 소요시간</h3>
+                    </div>
+					<br><br>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-save"></i>
+								</div>
+							</div>
+							<div class="media-body">
+								<h4>데이터 삭제
+									<small>초기화 및 부주의 등으로 인한 데이터 삭제</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-database"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>하드웨어 불량
+									<small>간단한 하드웨어 불량 등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-tint"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>침수
+									<small>외부적인 요소로 불량 발생</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa  fa-gavel"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>충격
+									<small>외부적인 요소로 불량 발생</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+                    <a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-plug"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>전원 문제
+									<small>전원이 아예 안들어오는 경우</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+                    <a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-exclamation-triangle"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>다운, 멈춤
+									<small>외부요인으로 인한 과열 및 멈춤 증상</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-spinner"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>오류, 무한로딩, 리부팅
+									<small>부팅 중 멈춤, 재부팅, 무한로딩 증상</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+                    <a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa fa-plug"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>인식 불가
+									<small>장치를 인식하지 못하거나 오류 증상</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+					<a href="" class="col-sm-4 card card-light card-lightest" data-toggle="modal" data-target="#large-modal">
+						<div class="media">
+							<div class="media-left">
+								<div class="icon icon-color icon-size-3">
+									<i class="fa  fa-gavel"></i>
+								</div>
+							</div>
+							<div class="media-body">
+                                <h4>완파, 완전 부식 등
+									<small>기기 파손 및 손상으로 인한 문제 등</small>
+								</h4>
+								<div class="heading-divider"></div>
+								<p>
+									<b>3일~5일</b>
+								</p>
+							</div>
+						</div>
+					</a>
+
+					<br>
+					<br>
+					<br>
+				</div>
+                <p>※데이터복구 소요시간은 단말기의 상태에 따라 다소 차이가 날 수 있으며 지연시 안내전화 드립니다.</p>
+				<p>※실제 데이터복구 작업은 서울 소재의 데이터복구센터에서 진행합니다.</p>
+                <p><strong>※상기 소요시간은 택배 운송 시간이 포함된 작업 시간입니다.</strong></p>
+			</section>
+		</div>
+        <hr class="hr-nobg hr-md">
+        <div class="highlight highlight-light">
+    		<div class="container">
+                <div class=" text-center">
+                    <div class="heading-divider"></div>
+                    <h3 class="text-center">복구 전 주의사항</h3>
+                </div>
+                <hr class="hr-nobg">
+                <ul>
+                    <li><i class="fa fa-caret-right"></i> 데이터를 손실하였을 경우 당황하지 마시고 차분하게 휴대폰 전원을 꺼 두세요.<br></li>
+                    <li><i class="fa fa-caret-right"></i> 데이터 손실 후 추가적인 사용을 하지 않을수록 복구율은 올라갑니다.<br></li>
+                    <li><i class="fa fa-caret-right"></i> 전원이 들어오지 않는 경우라도 데이터는 대부분 복구가 가능하므로 전원 공급을 삼가주세요<br></li>
+                    <li><i class="fa fa-caret-right"></i> 중요한 데이터가 있는 경우 휴대폰 서비스센터보다는 휴대폰 복구업체와 먼저 상담하세요</li>
+                </ul>
+    		</div>
+    	</div>
+
+        <hr class="hr-nobg">
+
+        <div class="container">
+            <div class=" text-center">
+                <div class="heading-divider"></div>
+                <h3 class="text-center">데이터 복구 의뢰방법</h3>
+            </div>
+            <hr class="hr-nobg">
+            <h4>1.내방접수절차</h4>
+            <p>※ 복구가 필요한 휴대전화 또는 외장장치와 구비서류를 가지고 내방하세요.</p>
+            <br>
+            <!-- 접수절차 -->
+            <div class="slider carousel steps-2 cards steps-noborder">
+                <div class="row">
+                    <ul data-max-items="3" data-fx="scroll" data-circular="false">
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="javascript:void(0)">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa  fa-phone"></i>
+                                </div>
+                                <h4>1.게시판 및 전화문의</h4>
+                                <p>문의 상담</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="javascript:void(0)">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-edit"></i>
+                                </div>
+                                <h4>2.내방/접수</h4>
+                                <p>해당서류 지참</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="javascript:void(0)">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-stethoscope"></i>
+                                </div>
+                                <h4>3.진단/테스트</h4>
+                                <p>견적안내</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="javascript:void(0)">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-wrench"></i>
+                                </div>
+                                <h4>4.수리/결과안내</h4>
+                                <p>복구결과안내</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="javascript:void(0)">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-truck"></i>
+                                </div>
+                                <h4>5.결재/제품출고</h4>
+                                <p>직접 출고</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="" class="slider-arrow arrow-out slider-arrow-prev"></a>
+                    <a href="" class="slider-arrow arrow-out slider-arrow-next"></a>
+                </div>
+                <nav class="slider-pagination"></nav>
+            </div>
+            <!-- /.접수절차 -->
+            <hr class="hr-nobg">
+            <h4>2.택배접수절차</h4>
+            <p>※ 복구가 필요한 휴대전화 또는 외장장치와 구비서류를 택배에 동봉해 주세요.</p>
+            <br>
+            <!-- 택배절차 -->
+            <div class="slider carousel steps-2 cards steps-noborder">
+                <div class="row">
+                    <ul data-max-items="3" data-fx="scroll" data-circular="false">
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa  fa-phone"></i>
+                                </div>
+                                <h4>1.게시판 및 전화문의</h4>
+                                <p>문의 상담</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-edit"></i>
+                                </div>
+                                <h4>2.제품 및 서류 발송</h4>
+                                <p>택배 발송</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-stethoscope"></i>
+                                </div>
+                                <h4>3.진단/테스트</h4>
+                                <p>견적통보</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-wrench"></i>
+                                </div>
+                                <h4>4.수리/결과통보</h4>
+                                <p>복구결과통보</p>
+                            </a>
+                        </li>
+                        <li class="col-sm-4 card card-light card-lighter">
+                            <a href="">
+                                <div class="icon icon-color icon-size-4">
+                                    <i class="fa fa-truck"></i>
+                                </div>
+                                <h4>5.결재/제품출고</h4>
+                                <p>택배 발송</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="" class="slider-arrow arrow-out slider-arrow-prev"></a>
+                    <a href="" class="slider-arrow arrow-out slider-arrow-next"></a>
+                </div>
+                <nav class="slider-pagination"></nav>
+            </div>
+        </div>
+        <!-- /.택배절차 -->
+        <hr class="hr-nobg">
+        <hr class="hr-nobg">
+        <div class="container">
+			<p class="text-center">
+				<a href="application.html" class="btn btn-inverse btn-border btn-xl btn-wide">수리의뢰</a>
+			</p>
+			<br>
+		</div>
+    </div>
+    <div class="promo-box promo-box-light background promo-box-lg" style="background-color: #fafafa;">
+        <div class="container">
+            <section class="row irow-xs page-header cols-border divtable">
+                <div class="col-lg-10 col-md-9 col-sm-8 divcell">
+                    <h3>긴급복구 서비스</h3>
+                    <p>긴급을 요하는 중요한 데이터인 경우 정해진 시간내에 최우선으로 작업을 해드립니다.</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 text-right divcell">
+                    <a href="data_emergency.html?urgent=true" class="btn btn-primary btn-lg">바로가기</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal Large -->
+    <div class="modal fade" id="large-modal">
+    	<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+    				<h6 class="modal-title">데이터 복구 가격표</h6>
+    			</div>
+    			<div class="modal-body text-center">
+    				<div class="modal-body-inside">
+    					<div class="icon icon-color icon-size-4" >
+    						<i class="fa fa-heart-o"></i>
+    					</div>
+    					<h4>데이터 복구 가격표</h4>
+    					<div class="heading-divider"></div>
+                        <div class="table-responsive">
+                            <h5 class="text-left">일반 복구 서비스</h5>
+            				<table class="table table-bordered text-left">
+            					<thead>
+            					<tr>
+            						<th rowspan="3" colspan="2" style="vertical-align:middle; text-align:center">복구 데이터 종류</th>
+            						<th rowspan="3" style="vertical-align:middle; text-align:center">기본 작업비용<br>(별도청구/환불불가)</th>
+            						<th colspan="4" style="vertical-align:middle; text-align:center">복구가격</th>
+            					</tr>
+                                <tr>
+            						<th colspan="2" style="vertical-align:middle; text-align:center">스마트폰</th>
+                                    <th colspan="2" style="vertical-align:middle; text-align:center">피쳐폰</th>
+            					</tr>
+                                <tr>
+            						<th style="vertical-align:middle; text-align:center">정상</th>
+                                    <th style="vertical-align:middle; text-align:center">고장</th>
+                                    <th style="vertical-align:middle; text-align:center">정상</th>
+                                    <th style="vertical-align:middle; text-align:center">고장</th>
+            					</tr>
+            					</thead>
+            					<tbody>
+            					<tr>
+            						<td rowspan="4" style="vertical-align:middle; text-align:center">전화번호</td>
+            						<td>200건 이하</td>
+            						<td rowspan="11" style="vertical-align:middle; text-align:center">30,000원</td>
+            						<td>60,000원</td>
+            						<td>100,000원</td>
+            						<td>130,000원</td>
+            						<td>180,000원</td>
+            					</tr>
+                                <tr>
+            						<td>500건 이하</td>
+            						<td>80,000원</td>
+            						<td>120,000원</td>
+            						<td>150,000원</td>
+            						<td>200,000원</td>
+            					</tr>
+                                <tr>
+            						<td>1000건 이하</td>
+            						<td>120,000원</td>
+            						<td>150,000원</td>
+            						<td>220,000원</td>
+            						<td>270,000원</td>
+            					</tr>
+                                <tr>
+            						<td>1000건 초과</td>
+            						<td>150,000원</td>
+            						<td>170,000원</td>
+            						<td>270,000원</td>
+            						<td>350,000원</td>
+            					</tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">사진</td>
+                                    <td>120,000원</td>
+                                    <td>120,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">동영상</td>
+                                    <td>120,000원</td>
+                                    <td>120,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">일정관리(스케줄)</td>
+                                    <td>150,000원</td>
+                                    <td>200,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">메모</td>
+                                    <td>150,000원</td>
+                                    <td>200,000원</td>
+                                    <td>200,000원</td>
+                                    <td>300,000원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">Email, 기타문서</td>
+                                    <td>150,000원</td>
+                                    <td>150,000원</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">고장폰 패키지 A</td>
+                                    <td colspan="4" style="vertical-align:middle;">전화번호 + 사진 200,000원(수량무관)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">고장폰 패키지 B</td>
+                                    <td colspan="4" style="vertical-align:middle;">전화번호 + 사진 + 동영상 250,000원(수량무관)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align:middle; text-align:center">할인정책</td>
+                                    <td></td>
+                                    <td colspan="4" style="vertical-align:middle; text-align:center">
+                                        2건 10%할인<br>
+                                        3건 이상 20%할인
+                                    </td>
+                                </tr>
+            					</tbody>
+            				</table>
+                            <ul class="text-left">
+                                <li style="padding-left:5px;"><i class="fa fa-caret-right"></i> 복구 완료시 택배비용은 당사가 부담합니다.</li>
+                                <li><i class="fa fa-caret-right"></i> 기본 작업비 3만원을 결제하셔야 작업이 진행되며, <strong>기본작업비는 환불되지 않습니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 긴급복구서비스는 작업비 50,000원</strong>, 일반 복구비용의 <strong>1.5배, 타업체 복구실패건</strong>은 일반 복구비용의 2배가 적용됩니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong style="text-decoration:underline;"> 복구 소요시간은 업무시간인 월~금 9:30~19:00를 기준으로 합니다.</strong></li>
+                            </ul>
+                            <br>
+
+                            <h5 class="text-left">분석 복구 서비스</h5>
+            				<table class="table table-bordered text-left">
+            					<thead>
+                					<tr>
+                						<th rowspan="2" style="vertical-align:middle; text-align:center">복구 데이터 항목</th>
+                						<th rowspan="2" style="vertical-align:middle; text-align:center">정밀 작업비용<br>(별도청구/환불불가)</th>
+                						<th colspan="4" style="vertical-align:middle; text-align:center">복구성공시 청구요금(VAT별도)</th>
+                					</tr>
+                                    <tr>
+                						<th style="vertical-align:middle; text-align:center">정상폰</th>
+                                        <th style="vertical-align:middle; text-align:center">고장폰</th>
+                                        <th style="vertical-align:middle; text-align:center">확인서<br>(경찰서제출용)</th>
+                                        <th style="vertical-align:middle; text-align:center">증거감정서<br>(법원제출용)</th>
+                					</tr>
+            					</thead>
+            					<tbody>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">통화내역, 문자메세지</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">1건 50,000원<br><br>2건이상 100,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">300,000원</td>
+                                        <td rowspan="5" style="vertical-align:middle; text-align:center">500,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">모바일 메신저<br>(카카오톡, 마이피플, 틱톡 등)</td>
+                                        <td style="vertical-align:middle; text-align:center">350,000원<br>(각각청구)</td>
+                                        <td style="vertical-align:middle; text-align:center">350,000원<br>(각각청구)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">첨부사진<br>(문자, 카카오톡 등)</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원<br>(각각청구)</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원<br>(각각청구)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">음성파일</td>
+                                        <td style="vertical-align:middle; text-align:center">300,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">300,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">메일 및 인터넷 방문기록</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                        <td style="vertical-align:middle; text-align:center">250,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; text-align:center">할인정책</td>
+                                        <td colspan="5" style="vertical-align:middle; text-align:center">2건 10% 할인<br>3건 이상 20% 할인</td>
+                                    </tr>
+                                <tbody>
+                            </table>
+                            <ul class="text-left">
+                                <li><i class="fa fa-caret-right"></i><strong> 휴대폰 증거 감정복구</strong>는 <strong>대법원 공식 감정인</strong>이 직접 증거감정 팀을 구성하여 절차에 의해 분석감정을 진행합니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 증거감정복구</strong>는 자동화된 일반복구 솔루션보다 더 세밀하게 메모리 전 영역을 분석합니다.</li>
+                                <li><i class="fa fa-caret-right"></i> 기본 작업비용 및 데이터 수령비용은 선결제 하셔야 하며, 감정결과에 상관없이 환불되지 않습니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 긴급복구서비스는 작업비 50,000원</strong>, 일반 복구비용의 <strong>1.5배, 타업체 복구실패건</strong>은 일반 복구비용의 2배가 적용됩니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 증거감정</strong> 복구결과는 데이터 수령비용 결제 후 CD 또는 메일로 수령 가능합니다.</li>
+                                <li><i class="fa fa-caret-right"></i><strong> 보고서(확인서 및 감정서)는 데이터 수령 및 검토 후 결정하시면 됩니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 정밀분석 요청 시 별도의 작업비용(10만원)이 청구됩니다.</strong></li>
+                                <li><i class="fa fa-caret-right"></i><strong> 암호화 스마트폰은 추가비용이 발생될 수 있습니다.</strong></li>
+                            </ul>
+            			</div>
+    					<a href="" class="btn btn-primary btn-wide" data-dismiss="modal">닫기</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <!-- /.modal -->
+
+<script>
+	window.onload = function(){
+        function getHeight(target){
+            var arr = [];
+            var temp = 0;
+            target.css({
+                height:'auto'
+            });
+            target.each(function(){
+                arr.push($(this).outerHeight());
+            });
+            for(i in arr){
+                (arr[i] > temp)? temp = arr[i] : temp = temp;
+            }
+            target.css({
+                height:temp
+            });
+        }
+
+        getHeight($('.box_expact .card'));
+        $(window).resize(function(){
+            getHeight($('.box_expact .card'));
+        })
+	}
+</script>
+{% endblock %}

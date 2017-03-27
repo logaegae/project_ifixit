@@ -1,0 +1,204 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+	/*.box1 .card{
+		height:420px;
+	}*/
+	.modal_message{
+		text-align: justify;
+		padding-left:5px;
+	}
+	.local_p strong{
+		margin-left: 10px;
+	}
+	.local_p span{
+		margin-left: 20px;
+		display: block;
+	}
+
+</style>
+
+
+	<!-- PAGE TITLE -->
+	<header class="pagetitle pagetitle-sm">
+		<div class="container">
+			<div class="divtable irow">
+				<div class="divcell">
+					<i class="fa fa-columns"></i>
+					<h1>지점안내</h1>
+					<div class="divider"></div>
+					<span class="subtitle">전국 협력 지점 안내</span>
+				</div>
+				<div class="divcell text-right">
+					<ol class="breadcrumb">
+						<li><a href="#">홈</a></li>
+						<li class="active">지점안내</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /.pagetitle -->
+
+	<!-- CONTENT -->
+	<div class="content location">
+		<!-- CONTAINER -->
+		<div class="container">
+		{% for group in groups %}
+			<h2>{{group.groupName}}</h2>
+			<div class="heading-divider heading-divider-lg"></div>
+			<div class="row irow-sm text-center cards cards-inside box1">
+			{% for item in group.Stores %}
+				{% if item.AttachFiles.length == 0 %}
+					{% set imagePath = '/images/300x300.png' %}
+				{% else %}
+					{% set attachFile = item.AttachFiles[0] %}
+					{% set imagePath = attachFile.filePath %}
+				{% endif %}
+				<div class="col-md-3 col-sm-6" id="store_card_{{item.storeId}}">
+					<a href="location_detail.html?storeId={{item.storeId}}" class="card-flip store_card">
+						<div class="flipper" style="margin-top:10px;margin-bottom:10px;">
+							<div class="front card card-light card-lightest card-border-solid" style="padding:0px;">
+								<div class="img_height">
+									<img
+										src="{{imagePath}}"
+										alt=""
+										style="width:100%;">
+								</div>
+								<hr class="hr-nobg hr-sm" />
+								<h4>{{item.name}}</h4>
+								<p class="text-left local_p">
+									{%if item.normalTime || item.satTime || item.holiTime%}<strong>영업시간</strong> <br>{%endif%}
+									 {%if item.normalTime%}<span>&nbsp;&nbsp;&nbsp;&nbsp;평일: {{item.normalTime}}</span>{%endif%}
+									 {%if item.satTime%}<span>토요일: {{item.satTime}}</span>{%endif%}
+									 {%if item.holiTime%}<span>일요일: {{item.holiTime}}</span>{%endif%}
+									 {%if item.normalTime || item.satTime || item.holiTime%}<span style="height:10px"></span>{%endif%}
+									<strong>전화번호</strong>
+									<span onclick="location.href='tel://{{item.tel}}'; return false;">{{item.tel}}</span>
+									 <span style="height:10px"></span>
+									<strong>주소</strong>
+									<span>{{item.address}}</span>
+
+								</p>
+								<div class="heading-divider"></div>
+								<hr class="hr-nobg hr-sm" />
+							</div>
+							<div class="back card card-dark"  style="padding:0px;">
+								<div class="img-wrapper">
+									<div class="img_height">
+										<img
+											src="{{imagePath}}"
+											alt=""
+											style="width:100%;">
+									</div>
+								</div>
+								<hr class="hr-nobg hr-sm" />
+								<h4>{{item.name}}</h4>
+								<p class="text-left local_p">
+									{%if item.normalTime || item.satTime || item.holiTime%}<strong>영업시간</strong> <br>{%endif%}
+									 {%if item.normalTime%}<span>&nbsp;&nbsp;&nbsp;&nbsp;평일: {{item.normalTime}}</span>{%endif%}
+									 {%if item.satTime%}<span>토요일: {{item.satTime}}</span>{%endif%}
+									 {%if item.holiTime%}<span>일요일: {{item.holiTime}}</span>{%endif%}
+									 {%if item.normalTime || item.satTime || item.holiTime%}<span style="height:10px"></span>{%endif%}
+									<strong>전화번호</strong>
+									<span onclick="location.href='tel://{{item.tel}}'; return false;">{{item.tel}}</span>
+									 <span style="height:10px"></span>
+									<strong>주소</strong>
+									<span>{{item.address}}</span>
+
+								</p>
+								<div class="heading-divider"></div>
+								<hr class="hr-nobg hr-sm" />
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+			<hr class="hr-nobg hr-sm" />
+		{% endfor %}
+		<hr class="hr-nobg hr-sm">
+		<div class="text-center">
+			<span style="font-size:20px; font-weight:600; vertical-align:middle;">※ 지점 모집중 ( 문의:010-2930-5055 )</span>&nbsp;
+			<!-- <h4 style="display:inline-block">지점 모집 중 (문의:010-2930-5055)</h4>&nbsp;&nbsp; -->
+			<img src="../../images/100x100.png" alt="" width="50" height="50">
+		</div>
+		</div>
+		<!-- /.container -->
+	</div>
+
+
+<script>
+function get_version_of_IE () {
+
+	 var word;
+	 var version = "N/A";
+
+	 var agent = navigator.userAgent.toLowerCase();
+	 var name = navigator.appName;
+
+	 // IE old version ( IE 10 or Lower )
+	 if ( name == "Microsoft Internet Explorer" ) word = "msie ";
+
+	 else {
+		 // IE 11
+		 if ( agent.search("trident") > -1 ) word = "trident/.*rv:";
+
+		 // Microsoft Edge
+		 else if ( agent.search("edge/") > -1 ) word = "edge/";
+	 }
+
+	 var reg = new RegExp( word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})" );
+
+	 if (  reg.exec( agent ) != null  ) version = RegExp.$1 + RegExp.$2;
+
+	 return version;
+}
+	var data = {{JSON.stringify(groups,0,4)}};
+	window.onload = function(){
+		// 리사이즈 보정
+		if(parseInt(get_version_of_IE()) <= 8){
+			$('.img_height img').css({'height':200,'width':'100%'});
+		}else{
+			$('.img_height img').css({'height':$('.img_height img').width() / 1.3});
+			$('.back.card').css({width:$('.front.card').width()});
+		}
+
+
+		$(window).resize(function(){
+			$('.img_height img').css({'height':$('.img_height img').width() / 1.3});
+			$('.back.card').css({width:$('.front.card').width()});
+		});
+
+		// 카드 height 통일
+		var con;
+		function getHeight(target){
+            var arr = [];
+            var temp = 0;
+            target.css({
+                height:'auto'
+            });
+            target.each(function(){
+				if(parseInt(get_version_of_IE()) <= 8){
+					arr.push(650);
+            	}else{
+					arr.push($(this).height());
+				}
+            });
+            for(i in arr){
+                (arr[i] > temp)? temp = arr[i] : temp = temp;
+            }
+            target.css({
+                height:temp
+            });
+			con = arr;
+
+        }
+        getHeight($('.box1 .card'));
+        $(window).resize(function(){
+            getHeight($('.box1 .card'));
+        });
+
+	};
+</script>
+{% endblock %}

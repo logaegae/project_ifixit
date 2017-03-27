@@ -1,0 +1,214 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+<style>
+    table th{
+        text-align: center;
+        background-color: #fafafa;
+        vertical-align: middle !important;
+    }
+    label{
+        font-weight: normal;
+        margin-right:20px;
+    }
+    label input{
+        margin-right:5px !important;
+    }
+    .hp1::after{
+        content:"-";
+        position:absolute;
+        top:10px;
+        right:15px;
+    }
+    .appli_table_textbox{
+        width:100%;
+        overflow-y:scroll;
+        border:1px #AAA solid;
+        margin:10px auto;
+        padding:15px;
+    }
+    @media screen and (max-width: 479px) {
+        .hp{
+            width:15%;
+            display:inline-block;
+        }
+    }
+</style>
+    <!-- PAGE TITLE -->
+    <header class="pagetitle pagetitle-sm">
+    	<div class="container">
+    		<div class="divtable irow">
+    			<div class="divcell">
+    				<i class="fa fa-file-o"></i>
+    				<h1>메인보드 수리</h1>
+    				<div class="divider"></div>
+    				<span class="subtitle">메인보드 수리 의뢰</span>
+    			</div>
+    			<div class="divcell text-right">
+    				<ol class="breadcrumb">
+    					<li><a href="#">홈</a></li>
+    					<li class="active">메인보드 수리</li>
+    				</ol>
+    			</div>
+    		</div>
+    	</div>
+    </header>
+    <!-- /.pagetitle -->
+
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <section class="row page-header text-center">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                    <div class="icon icon-color icon-size-7">
+                        <i class="fa fa-hdd-o"></i>
+                    </div>
+                    <h1>메인보드수리 신청 의뢰</h1>
+                    <p style="margin:0 auto">온라인 접수시 남기신 연락처로 연락드립니다.</p>
+                </div>
+            </section>
+        </div>
+        <hr class="hr-nobg">
+        <hr class="hr-nobg">
+        <div class="iwrap iwrap-light">
+			<div class="container">
+                <hr class="hr-nobg">
+                <div class="text-center">
+                    <div class="heading-divider"></div>
+                    <h3 class="text-center">필요서류</h3>
+                </div>
+                <hr class="hr-nobg">
+				<div class="row irow-xs">
+					<div class="col-sm-5 img-wrap img-wrap-left" style="height: 429px;">
+						<img src="../../images/mainboard_2.jpg" alt="">
+					</div>
+					<div class="col-sm-6 col-sm-offset-1 text-wrap">
+						<div class="row irow-sm">
+
+							<div class="col-md-6">
+								<div class="icon icon-color icon-size-4">
+									<i class="fa fa-heart-o"></i>
+								</div>
+								<h4>메인보드 수리시</h4>
+								<div class="heading-divider"></div>
+								<p>수리의뢰서(온라인접수가능)</p>
+							</div>
+						</div>
+                        <p><br><br>※ 메인보드는 수리완료 후 기기의 데이터가 초기화됩니다.</br>수리와 동시에 데이터 복원은 데이터복구시 필요한 서류를 같이 첨부하여야 합니다.</p>
+					</div>
+				</div>
+			</div>
+	    </div>
+
+        <hr class="hr-nobg">
+        <div class="container">
+            <div class="text-center">
+                <div class="heading-divider"></div>
+                <h3 class="text-center">신청하기</h3>
+            </div>
+            <hr class="hr-nobg">
+            <form action="repair_request_mainboard.html" method="post">
+                <fieldset>
+                    <legend class="sr-only">메인보드 수리 신청의뢰</legend>
+                    <div class="table-responsive form-group">
+        				<table class="table table-bordered">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="80%">
+                            </colgroup>
+        					<tbody>
+                            <tr>
+        						<th>의뢰지점</th>
+        						<td>
+                                    <div class="col-xs-6" style="padding-left:0;">
+                                        <select name="storeId" id="model_class" required>
+                                            <option selected="true" disabled="disabled" style="display:none;" id="none">선택하세요</option>
+                                            {% for item in stores %}
+                                                <option value="{{item.storeId}}">{{item.name}}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                    </div>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>고객명</th>
+        						<td>
+                                    <div class="col-xs-6" style="padding-left:0;">
+                                        <input type="text" id="name" name="name" required><label for="name" class="sr-only">고객명</label>
+                                    </div>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>연락처</th>
+        						<td>
+                                    <div class="col-xs-6" style="padding-left:0;">
+                                        <input type="text" id="phone" name="phone" required><label for="phone" class="sr-only">연락처</label>
+                                    </div>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>단말기 모델명</th>
+        						<td>
+                                    <div class="col-xs-6" style="padding-left:0;">
+                                        <input type="text" id="modelName" name="modelName" required><label for="modelName" class="sr-only">단말기 모델명</label>
+                                    </div>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>단말기 비밀번호</th>
+        						<td>
+                                    <div class="col-xs-6" style="padding-left:0;">
+                                        <input type="text" id="pwd" name="pwd"><label for="pwd" class="sr-only">단말기 모델명</label>
+                                    </div>
+                                </td>
+        					</tr>
+                            <tr>
+        						<th>고장증상 / 요청사항</th>
+        						<td>
+        						    <textarea class="form-control" name="content" rows="5" required></textarea>
+        						</td>
+        					</tr>
+                            <tr>
+        						<td colspan="2" style="padding:15px 3%;">
+                                    <span class="pull-left">개인정보의 수집 및 이용목적</span>
+                                    <span class="pull-right">
+                                        <label for="agree" style="margin:0;"><input type="checkbox" name="" value="" id="agree" required>개인정보의 수집 및 이용목적에 동의합니다.</label>
+                                    </span>
+                                    <br>
+                                    <div class="clearfix appli_table_textbox">
+                                        ▶ 개인정보의 수집 및 이용목적<br>
+                                        - 서비스 이용에 따른 본인 식별, 실명확인, 가입의사 확인, 연령제한 서비스 이용<br>
+                                        - 고지사항 전달, 불만처리 의사소통 경로 확보, 물품배송시 정확한 배송지 정보 확보<br>
+                                        - 신규 서비스 등 최신정보 안내 및 개인맞춤서비스 제공을 위한 자료<br>
+                                        - 기타 원활한 양질의 서비스 제공 등<br><br>
+                                        ▶ 수집하는 개인정보의 항목<br>
+                                        -이름, 이메일, 주소, 연락처, 핸드폰번호, 그 외 선택항목<br><br>
+                                        ▶ 개인정보의 보유 및 이용기간<br>
+                                        - 원칙적으로 개인정보의 수집 또는 제공받은 목적 달성 시 지체없이 파기합니다.<br>
+                                        - 다만, 원활한 서비스의 상담을 위해 상담 완료 후 내용을 3개월간 보유할 수 있으며<br>
+                                        전자상거래에서의 소비자보호에 관한 법률 등 타법률에 의해 보존할 필요가 있는 경우에는 일정기간 보존합니다.<br>
+                                    </div>
+                                </td>
+        					</tr>
+        					</tbody>
+        				</table>
+        			</div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-lg btn-primary" value="보내기" id="submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+<script>
+    window.onload = function(){
+        $('#submit').click(function(e){
+            if( document.getElementById("none").selected == true){
+                alert("의뢰지점을 선택하세요");
+                e.preventDefault();
+            }
+        });
+    }
+</script>
+{% endblock %}

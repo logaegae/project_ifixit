@@ -1,0 +1,98 @@
+{% extends "./blocks/layout.html" %}
+{% block content %}
+
+
+
+	<!-- PAGE TITLE -->
+	<header class="pagetitle pagetitle-sm">
+		<div class="container">
+			<div class="divtable irow">
+				<div class="divcell">
+					<i class="fa fa-columns"></i>
+					<h1>공지사항</h1>
+					<div class="divider"></div>
+					<span class="subtitle">새 소식</span>
+				</div>
+				<div class="divcell text-right">
+					<ol class="breadcrumb">
+						<li><a href="#">홈</a></li>
+						<li class="active">공지사항</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- /.pagetitle -->
+
+
+	<!-- CONTENT -->
+	<div class="content">
+		
+		{% for item in list %}
+			<!-- POST: Standart -->
+			<div class="container post format-standart">
+				<div class="entry">
+					<header class="entry-header">
+						<h2><a>{{item.title}}</a></h2>
+						<div class="meta">
+							<small><i class="fa fa-calendar"></i>{{item.registDate | date('Y-m-d')}}</small>
+						</div>
+					</header>
+					<div class="entry-content">
+						<p>{{item.content | safe}}</p>
+					</div>
+				</div>
+			</div>
+			<!-- /.post -->
+	
+			<hr/>
+			
+		{% endfor %}
+
+
+		<!-- CONTAINER -->
+		<div class="container text-center">
+			<!-- PAGINATION -->
+			<ul class="pagination">
+				
+	                    {% set totalPage = Math.floor(totalCount / pageSize) %}
+	                    {% if totalCount % pageSize > 0 %}
+	                    	{% set totalPage = totalPage + 1%}
+	                    {% endif %}
+	                    
+	                    {% set num =  currentPage-1  %}
+	                    {% set startPage = Math.floor(num / 10) * 10 + 1%}
+						{% set endPage = startPage + 10 - 1 %}
+	                    {% if endPage  > totalPage %}
+	                    	{% set endPage = totalPage %}
+	                    {% endif %}
+                    	{% if currentPage > 1 %}
+                    		<li><a href="?page={{currentPage-1}}" class="prev"><i class="fa fa-angle-left"></i></a></li>
+                        {% else %}
+                     	 	<li><a class="prev"><i class="fa fa-angle-left"></i></a></li>
+                        {% endif %}
+                        
+                        {% for i in Array(endPage-startPage+1) %}
+                        	{% set page =  startPage + loop.index-1 %}
+                       		{% if currentPage == page %}
+                        		<li class="active"><a>{{page}}</a></li>
+                        	{% else %}
+                        		<li><a href="?page={{page}}">{{page}}</a></li>
+                        	{% endif %}
+                        {% endfor %}
+                                                
+                        {% if currentPage < totalPage %}
+                        	<li><a href="?page={{currentPage+1}}" class="next"><i class="fa fa-angle-right"></i></a></li>
+                        {% else %}
+                        	<li><a class="next"><i class="fa fa-angle-right"></i></a></li>
+                        {% endif %}
+			</ul>
+			<!-- /.pagination -->
+		</div>
+		<!-- /.container -->
+
+	</div>
+	<!-- /.content -->
+
+
+{% endblock %}

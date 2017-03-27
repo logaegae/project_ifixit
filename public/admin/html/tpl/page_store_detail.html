@@ -1,0 +1,252 @@
+<script type="text/javascript">
+
+angular.module('app').controller('myCtrl', ['$scope', '$rootScope', '$http', '$sce', '$stateParams', '$location', 
+	'$state', '$httpParamSerializerJQLike',
+	function($scope, $rootScope, $http, $sce, $stateParams, $location, $state, $httpParamSerializerJQLike) {
+
+		$scope.mode = $stateParams.storeId ? 'modify' : 'new';
+		//an array of files selected
+	    $scope.files = [];
+	    $scope.imageSources = [];
+
+
+		if($scope.mode == "modify") {
+			$http({
+				method : "POST",
+				url : "/admin/api/store/"+$stateParams.storeId
+			}).success(function(data) {
+				console.log(data);
+				$scope.data = data;
+				
+				for(var i = 0 ; i < data.AttachFiles.length; i++) {
+					$scope.imageSources.push(data.AttachFiles[i].filePath)
+				}
+			});			
+		}
+		
+		$scope.submit = function () {
+
+			var url = "";
+			if($scope.mode == "modify") {
+				url = "/admin/api/store/"+$stateParams.storeId+"/update";
+			} else {
+				url = "/admin/api/store/insert";
+			}
+
+			$scope.data.groupId = 1;
+				
+			$http({
+					method : "POST",
+					url : url,
+					data: $scope.data,
+					headers : {'Content-Type': undefined},
+		            transformRequest: function (data, headersGetter) {
+		                var formData = new FormData();
+		                angular.forEach(data, function (value, key) {
+		                	if(value != null) {
+		                		formData.append(key, value);
+		                	}
+		                });
+		                for (var i = 0; i < $scope.files.length; i++) {
+		                	formData.append("file", $scope.files[i]);
+		                }
+		                return formData;
+		            }
+			}).success(function(data) {
+				if(!$scope.alerts) {
+					$scope.alerts = [];
+				}
+
+				if($scope.mode == "modify") {
+					$scope.addAlert("저장되엇습니다.");
+				}else {
+					$location.path("/app/store/list");
+				}
+			});
+
+		};
+
+		$scope.addAlert = function(msg) {
+			$scope.alerts.push({msg: msg, type : 'warning'});
+		};
+
+		$scope.closeAlert = function(index) {
+			$scope.alerts.splice(index, 1);
+		};
+
+		$scope.removeThumb = function(index) {
+ 			$scope.data.removeAttach = "Y";
+			$scope.imageSources = [];
+		}
+		
+		
+
+	    //listen for the file selected event
+	    $scope.$on("fileSelected", function (event, args) {
+	        $scope.$apply(function () {            
+	            //add the file object to the scope's files collection
+	            $scope.files.push(args.file);
+		    });
+
+			var reader = new FileReader();
+
+			reader.onload = function(event) {
+				$scope.imageSources.push(event.target.result);
+				$scope.$apply();
+			}
+			// when the file is read it triggers the onload event above.
+			reader.readAsDataURL(args.file);
+
+	    });
+	    
+	    $scope.$on("fileSelecteStart", function (event, args) {
+	    	$scope.imageSources = [];
+	    });
+
+
+
+
+
+	    $scope.delete = function () {
+
+	    	if(confirm("삭제 하시겠습니까?")) {
+
+				$http({
+					method : "POST",
+					url : "/admin/api/store/"+$stateParams.storeId+'/delete',
+				}).success(function(data) {
+					$location.path("/app/store/list");
+				});			
+
+	    	}
+
+	    }
+
+	}]
+);
+
+angular.module('app').directive('fileUpload', function () {
+    return {
+        scope: true,        //create a new scope
+        link: function (scope, el, attrs) {
+            el.bind('change', function (event) {
+            	scope.file = [];
+                var files = event.target.files;
+                //iterate files since 'multiple' may be specified on the element
+                
+                scope.$emit("fileSelecteStart");
+                for (var i = 0;i<files.length;i++) {
+                    //emit event upward
+                    scope.$emit("fileSelected", { file: files[i] });
+                }             
+                el.val(null);
+            });
+        }
+    };
+});
+
+
+</script>
+<style>
+	.form-horizontal .ignore .form-group{
+		margin-left : 0px;
+		margin-right : 0px;
+	}
+</style>
+<div class="panel panel-default" ng-controller="myCtrl">
+	<div class="panel-heading">지정정보</div>
+	<div class="panel-body">
+		<form class="form-horizontal" method="get" ng-submit="submit()">
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group" ng-show="mode == 'modify'">
+				<label class="col-sm-2 control-label">No</label>
+				<div class="col-sm-10">
+					<span
+						class="help-block m-b-none">{{data.storeId}}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">지점명</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.name" required="required"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">주소</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.address"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">운영시간</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.openCloseTime"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">운영시간(평일)</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.normalTime"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">운영시간(토요일)</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.satTime"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">운영시간(공휴일)</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.holiTime"> 
+				</div>
+			</div>			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">전화번호</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="data.tel" required="required"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">MAP KEY</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" rows="3" ng-model="data.mapKey" ></textarea> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">매장사진</label>
+				<div class="col-sm-10">
+					<div class="wrapper-sm b-a bg-white m-r-xs m-b-xs" style="width:402px;">
+						<div class="bg-light">
+							<div ng-repeat="imageSource in imageSources">
+								<img src="{{imageSource}}" style="width:380px;height:300px" ng-show="imageSource">
+							</div>
+							<button ng-click="removeThumb()" type="button" class="btn btn-default" style="width:100%" ng-show="imageSources.length > 0">이미지 삭제</a>
+						</div>
+						
+						
+						<div class="bg-light text-center v-center" ng-show="imageSources.length == 0" style="width:380px;height:300px; line-height:300px;font-size:36px">매장 사진</div>
+						<input ui-jq="filestyle" type="file" accept="image/*" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control v-middle input-s" file-upload multiple="multiple">
+					</div>				
+				</div>
+
+			</div>
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+			<div class="form-group">
+				
+				<div class="col-sm-5 col-sm-offset-2">
+					
+					<button onclick="javascript:history.back()" class="btn btn-default m-r-sm">목록</a>
+					<button type="button" ng-click="delete()" class="btn btn-danger">삭제</button>
+					
+
+				</div>
+
+				<div class="col-sm-5 text-right">
+					<button type="submit" class="btn btn-primary">변경사항 저장</button>
+					<alert dismiss-on-timeout="2000" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="m-t-sm text-right">{{alert.msg}}</alert>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

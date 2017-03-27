@@ -1,0 +1,58 @@
+<script type="text/javascript">
+
+
+	app.controller('SigninFormController', [ '$scope', '$http', '$state', '$cookieStore', '$rootScope',
+		function($scope, $http, $state, $cookieStore, $rootScope) {
+
+			$scope.authError = null;
+			
+			$cookieStore.remove("currentUser");
+			
+			$scope.login = function() {
+				$scope.authError = null;
+				// Try to login
+				$http.post('/admin/api/login', {
+					email : $scope.user.email,
+					password : $scope.user.password
+				}).then(function(response) {
+					if (!response.data.isSuccess) {
+						$scope.authError = 'ID or Password not right';
+					} else {
+						$cookieStore.put("currentUser",JSON.stringify(response.data));
+						$rootScope.loginInfo = response.data;
+						$state.go("app.contact.list");
+					}
+				}, function(x) {
+					$scope.authError = x.data;
+				});
+			};
+		}
+	]);
+</script>
+
+<div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
+  <a href class="navbar-brand block m-t">{{app.name}}</a>
+  <div class="m-b-lg">
+    <div class="wrapper text-center">
+      <strong>관리자 계정을 입력하세요</strong>
+    </div>
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+          {{authError}}
+      </div>
+      <div class="list-group list-group-sm">
+        <div class="list-group-item">
+          <input type="text" placeholder="아이디" class="form-control no-border" ng-model="user.email" required>
+        </div>
+        <div class="list-group-item">
+           <input type="password" placeholder="비밀번호" class="form-control no-border" ng-model="user.password" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>로그인</button>
+      
+    </form>
+  </div>
+  <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
+    {% include 'blocks/page_footer.html' %}
+  </div>
+</div>
